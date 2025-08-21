@@ -1,0 +1,104 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+*,
+::before,
+::after {
+    border-style: none;
+    border-color: currentColor;
+}
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) var(--secondary);
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 7px;
+}
+
+*::-webkit-scrollbar-track {
+    @apply bg-slate-200 !important;
+}
+
+*::-webkit-scrollbar-thumb {
+    @apply rounded-2xl !important;
+    border: 3px solid currentColor;
+}
+
+* {
+    @apply font-display !important;
+}
+
+html,
+body {
+    @apply bg-surface-light dark:bg-surface-dark text-on-light dark:text-on-dark min-h-screen transition-all duration-500 overflow-x-hidden cursor-none scroll-smooth !important
+}
+
+a, button {
+    @apply cursor-none !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    -webkit-text-fill-color: currentColor;
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+input:-internal-autofill-selected {
+    background-color: transparent !important;
+}
+
+/* The masked gradient ring */
+.gradient-ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    /* pill shape */
+    padding: 2px;
+    /* border thickness */
+
+    /* animated gradient */
+    background: linear-gradient(90deg, #2dd4bf, #60a5fa, #a78bfa);
+    background-size: 200% 200%;
+    opacity: 0;
+    /* hidden by default */
+    transition: opacity .3s ease;
+
+    /* show + spin on hover */
+}
+
+.group:hover .gradient-ring {
+    opacity: 1;
+    animation: borderSpin 3s linear infinite;
+}
+
+/* Mask so gradient appears only on the border (transparent center) */
+.gradient-ring {
+    /* WebKit/Blink (Chrome, Safari, Edge) */
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        /* keep padding (border) area */
+        linear-gradient(#000 0 0);
+    /* cut out full box */
+    -webkit-mask-composite: xor;
+
+    /* Standards syntax (where supported) */
+    mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    mask-composite: exclude;
+}

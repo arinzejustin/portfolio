@@ -1,0 +1,23 @@
+{
+  "name": "my-site",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev --host",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@nuxt/image": "^1.11.0",
+    "@nuxtjs/tailwindcss": "^6.14.0",
+    "gsap": "^3.13.0",
+    "nuxt": "^3.17.5",
+    "vue": "^3.5.17",
+    "vue-router": "^4.5.1",
+    "vue3-toastify": "^0.2.8"
+  },
+  "devDependencies": {
+    "@iconify/vue": "^5.0.0"
+  }
+}
