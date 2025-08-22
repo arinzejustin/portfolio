@@ -60,6 +60,13 @@ export default defineComponent({
       { name: "Linux", level: "Novice", detail: "Basic command line & tools." },
     ]);
 
+    const screen = () => {
+      const width = window.innerWidth;
+      if (width < 768) return 64;
+      else if (width < 1024) return 80;
+      else return 96;
+    };
+
     onMounted(async () => {
       await nextTick();
 
@@ -71,7 +78,7 @@ export default defineComponent({
 
       const containerWidth = container.offsetWidth;
       const containerHeight = container.offsetHeight;
-      const boxSize = 96; // w-24
+      const boxSize = screen(); // w-24
       const padding = 0; // padding from container edges
 
       // Calculate how many balls fit per row
@@ -102,7 +109,7 @@ export default defineComponent({
           row < Math.ceil(boxes.length / ballsPerRow) + 2;
           row++
         ) {
-          const y = containerHeight - boxSize - row * (boxSize * 0.85); // slight overlap for natural stacking
+          const y = containerHeight - boxSize - row * (boxSize * 0.99); // slight overlap for natural stacking
 
           // Try each position in the row
           for (let col = 0; col < ballsPerRow; col++) {
@@ -223,15 +230,15 @@ export default defineComponent({
     <!-- Container that fills up like a box -->
     <div
       id="skills-container"
-      class="relative w-full max-w-3xl h-[500px] lg:h-[250px] overflow-hidden border-b border-app"
+      class="relative w-full max-w-3xl h-[250px] overflow-hidden border-b border-app"
     >
       <div
         v-for="(skill, i) in skills"
         :key="i"
-        class="group absolute skill-box w-24 h-24 rounded-full flex items-center justify-center font-bold border-2 cursor-pointer hover:border-4 border-app transition-all duration-300 opacity-100 hover:scale-110 hover:z-10"
+        class="group absolute skill-box w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full flex items-center justify-center font-bold border-2 cursor-pointer hover:border-4 border-app transition-all duration-300 opacity-100 hover:scale-110 hover:z-10"
         style="will-change: transform"
       >
-        <span class="text-sm text-center leading-tight px-2 select-none">{{
+        <span class="text-xs md:text-sm text-center leading-tight px-2 select-none">{{
           skill.name
         }}</span>
 
