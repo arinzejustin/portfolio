@@ -33,7 +33,7 @@ export default defineComponent({
         detail: "Timelines & scroll effects.",
       },
       {
-        name: "Physics",
+        name: "Electron Js",
         level: "Intermediate",
         detail: "Fundamental physics concepts.",
       },
@@ -44,12 +44,12 @@ export default defineComponent({
       },
       {
         name: "Node.js",
-        level: "Intermediate",
+        level: "Professional",
         detail: "Backend with Express & APIs.",
       },
       {
-        name: "MongoDB",
-        level: "Intermediate",
+        name: "MySql",
+        level: "Professional",
         detail: "Database modeling & queries.",
       },
       {
@@ -57,7 +57,27 @@ export default defineComponent({
         level: "Professional",
         detail: "Version control & collaboration.",
       },
-      { name: "Linux", level: "Novice", detail: "Basic command line & tools." },
+      {
+        name: "Postman",
+        level: "Professional",
+        detail: "API testing & documentation.",
+      },
+      {
+        name: "Python",
+        level: "Intermediate",
+        detail: "Scripting & automation.",
+      },
+      {
+        name: "PHP",
+        level: "Professional",
+        detail: "Web development and database queries.",
+      },
+      {
+        name: "Linux",
+        level: "Intermidate",
+        detail: "Basic command line & tools.",
+      },
+
     ]);
 
     const screen = () => {
@@ -228,11 +248,14 @@ export default defineComponent({
     class="relative w-full py-8 pb-1 flex flex-col items-center"
   >
     <h2 class="text-3xl font-bold mb-5 font-funky">What I'm Good At</h2>
-
+    <p class="text-center mb-2 pb-6 max-w-2xl text-sm md:text-base">
+      I have a diverse skill set in web, mobile and desktop development, from
+      frontend to backend.
+    </p>
     <!-- Container that fills up like a box -->
     <div
       id="skills-container"
-      class="relative w-full max-w-3xl h-[250px] overflow-hidden border-b border-app"
+      class="relative w-full max-w-3xl h-[300px] overflow-hidden border-b border-app"
     >
       <div
         v-for="(skill, i) in [...skills].sort(() => Math.random() - 0.5)"
@@ -266,7 +289,7 @@ export default defineComponent({
 }
 
 .dark .skill-box {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 6px rgba(255, 255, 255, 0.1),
+    0 8px 20px rgba(255, 255, 255, 0.05) !important;
 }
 </style>

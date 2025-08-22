@@ -1,6 +1,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { Icon } from "@iconify/vue";
+import gsap from "gsap";
 
 export default defineComponent({
   components: {
@@ -10,6 +11,7 @@ export default defineComponent({
   data() {
     return {
       isApple: false,
+      animate: false,
     };
   },
 
@@ -18,6 +20,18 @@ export default defineComponent({
       return this.isApple
         ? "imessage:arinzejustinng@gmail.com"
         : "sms:07073184665";
+    },
+  },
+
+  methods: {
+    animateGradient() {
+      if (this.animate) return;
+      gsap.to(".gradient-ring", {
+        duration: 2,
+        rotation: 360,
+        ease: "linear",
+        repeat: -1,
+      });
     },
   },
 
@@ -101,6 +115,8 @@ export default defineComponent({
     <!-- Right: Actions -->
     <div class="flex items-center gap-3 border-solid border-app border-l pl-4">
       <a
+        @mouseenter="animateGradient, (animate = true)"
+        @mouseleave="animate = false"
         role="button"
         href="/#hireme"
         class="relative inline-flex items-center justify-center px-3 md:px-4 py-1.5 md:py-2.5 rounded-full text-sm font-medium overflow-hidden group bg-surface-dark dark:bg-surface-light text-on-light dark:text-on-dark hover:bg-transparent dark:hover:bg-transparent"

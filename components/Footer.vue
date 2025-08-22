@@ -56,11 +56,11 @@ export default defineComponent({
 
 <template>
   <div
-    class="relative w-full md:max-w-4xl mx-auto py-16 px-4 md:pb-10 overflow-hidden"
+    class="relative w-full mx-auto py-16 md:pb-10 overflow-hidden"
     id="hireme"
   >
     <div
-      class="flex flex-col md:flex-row justify-center items-start gap-10 md:gap-12"
+      class="flex flex-col px-4 md:flex-row justify-center items-start gap-10 md:gap-12 md:max-w-4xl mx-auto w-full"
     >
       <!-- Mobile First: Social Links -->
       <div
@@ -71,8 +71,9 @@ export default defineComponent({
         >
           Contact Me Directly
         </h2>
-        <p class="mb-4 text-center md:text-left">
-          You can also reach me instantly via
+        <p class="mb-5 text-center md:text-left">
+          I'm always interested in exploring new opportunities, collaborating,
+          or exchanging ideas.
         </p>
         <div class="flex flex-row space-x-10">
           <a
@@ -126,24 +127,28 @@ export default defineComponent({
         >
           Send me a message
         </h2>
+        <p class="text-sm font-sans mb-7 text-center">
+          Feel free to book a call or email me if you'd like to see my portfolio
+          deck or to discuss a potential project.
+        </p>
         <div class="space-y-6">
           <input
             type="text"
             placeholder="Your Name"
             v-model="name"
-            class="w-full px-4 py-3 rounded-full border border-app focus:ring-2 focus:ring-teal-400 focus:outline-none bg-slate-50 dark:bg-[#121212] placeholder:text-on-light dark:placeholder:text-on-dark text-on-light dark:text-on-dark"
+            class="w-full px-4 py-5 rounded-full border border-app focus:ring-2 focus:ring-teal-400 focus:outline-none bg-slate-50 dark:bg-[#121212] placeholder:text-on-light dark:placeholder:text-on-dark text-on-light dark:text-on-dark"
           />
           <input
             type="email"
             v-model="email"
             placeholder="Your Email"
-            class="w-full px-4 py-3 rounded-full border border-app focus:ring-2 focus:ring-teal-400 focus:outline-none bg-slate-50 dark:bg-[#121212] placeholder:text-on-light dark:placeholder:text-on-dark text-on-light dark:text-on-dark"
+            class="w-full px-4 py-5 rounded-full border border-app focus:ring-2 focus:ring-teal-400 focus:outline-none bg-slate-50 dark:bg-[#121212] placeholder:text-on-light dark:placeholder:text-on-dark text-on-light dark:text-on-dark"
           />
           <textarea
             rows="5"
             v-model="message"
             placeholder="Your Message"
-            class="w-full px-4 py-3 bg-slate-50 dark:bg-[#121212] placeholder:text-on-light dark:placeholder:text-on-dark resize-none rounded-2xl border border-app focus:ring-2 focus:ring-teal-400 focus:outline-none text-on-light dark:text-on-dark"
+            class="w-full px-4 py-5 bg-slate-50 dark:bg-[#121212] placeholder:text-on-light dark:placeholder:text-on-dark resize-none rounded-3xl border border-app focus:ring-2 focus:ring-teal-400 focus:outline-none text-on-light dark:text-on-dark"
           ></textarea>
 
           <!-- Gradient Send Button -->
@@ -161,8 +166,10 @@ export default defineComponent({
         </div>
       </div>
     </div>
-    <div class="border-t border-app my-8 md:max-w-xl mx-auto"></div>
-    <div class="flex justify-center flex-col space-y-4 w-full md:pb-8">
+    <div class="border-t border-app my-8 mb-5"></div>
+    <div
+      class="flex px-4 justify-center flex-col space-y-4 w-full md:pb-8 mx-auto md:max-w-4xl"
+    >
       <p class="text-sm text-center">
         Copyright &copy; {{ new Date().getFullYear() }} Arinze Justin
       </p>
