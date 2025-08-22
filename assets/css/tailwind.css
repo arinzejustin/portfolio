@@ -8,7 +8,7 @@
     }
 
     .glass {
-        @apply relative backdrop-blur-md transition-shadow;
+        @apply relative backdrop-blur-sm transition-shadow;
         /* translucent background that adapts to theme */
         @apply bg-white/10 dark:bg-white/10;      /* base translucency */
         @apply border-white/20 dark:border-white/15; /* soft border */
@@ -19,7 +19,7 @@
       }
       
       .glass-lg {
-        @apply glass backdrop-blur-xl;
+        @apply glass backdrop-blur-md;
         /* box-shadow:
           inset 0 1px 0 0 rgba(255,255,255,0.25),
           0 20px 60px -20px rgba(0,0,0,0.35); */

@@ -33,7 +33,6 @@ export default defineComponent({
             scrollTrigger: {
               trigger: el,
               start: "top 93%",
-              toggleActions: "play none none reverse",
             },
           });
         });
@@ -46,8 +45,7 @@ export default defineComponent({
         ease: "power2.out",
         scrollTrigger: {
           trigger: "#hireme > div:last-child",
-          start: "top 98%",
-          toggleActions: "play none none none",
+          start: "top 85%",
         },
       });
     });
@@ -82,17 +80,23 @@ export default defineComponent({
             target="_blank"
             class="flex items-center gap-2"
           >
-            <Icon icon="mdi:whatsapp" class="w-7 h-7 text-on-light dark:text-on-dark" />
+            <Icon
+              icon="mdi:whatsapp"
+              class="w-7 h-7 text-on-light dark:text-on-dark"
+            />
           </a>
           <a
             href="mailto:codewitharinzejustin@gmail.com"
-            class="flex items-center gap-2 "
+            class="flex items-center gap-2"
           >
-            <Icon icon="entypo:email" class="text-on-light dark:text-on-dark w-7 h-7" />
+            <Icon
+              icon="entypo:email"
+              class="text-on-light dark:text-on-dark w-7 h-7"
+            />
           </a>
           <a
             href="imessage:arinzejustinng@gmail.com"
-            class="flex items-center gap-2 "
+            class="flex items-center gap-2"
           >
             <Icon
               icon="streamline-logos:imessage-logo"
@@ -158,7 +162,7 @@ export default defineComponent({
       </div>
     </div>
     <div class="border-t border-app my-8 md:max-w-xl mx-auto"></div>
-    <div class="flex justify-center flex-col space-y-4 w-full">
+    <div class="flex justify-center flex-col space-y-4 w-full md:pb-8">
       <p class="text-sm text-center">
         Copyright &copy; {{ new Date().getFullYear() }} Arinze Justin
       </p>

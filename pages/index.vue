@@ -40,7 +40,7 @@ export default defineComponent({
   <div class="relative">
     <div class="w-full md:max-w-4xl lg:max-w-3xl mx-auto px-4 py-8">
       <!-- Circle div -->
-      <div class="rounded-full bg-teal-400 h-20 w-20 slide-div"></div>
+      <div class="rounded-full bg-gradient-to-tr to-teal-400 from-purple-400 h-20 w-20 slide-div"></div>
 
       <div class="text-center slide-div mt-6">
         <!-- Texts all start blurred -->
@@ -55,13 +55,13 @@ export default defineComponent({
           Is A
         </p>
         <h3
-          class="blur-text text-xl font-sans md:text-4xl font-bold tracking-[-.03em] leading-[110%] mb-2 md:mb-2"
+          class="blur-text text-xl font-sans md:text-4xl font-bold tracking-[-.03em] leading-[110%] mb-0"
         >
           Software Engineer
         </h3>
 
         <!-- Zigzag + arrow -->
-        <div class="flex justify-center my-1">
+        <div class="flex justify-center my-0">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="60"
@@ -85,13 +85,18 @@ export default defineComponent({
           </svg>
         </div>
 
-        <p class="blur-text text-sm md:text-lg font-display text-on-light dark:text-on-dark">
+        <p
+          class="blur-text text-sm md:text-lg font-display text-on-light dark:text-on-dark"
+        >
           and creative mind blending technology, design, and strategy to build
           experiences that inspire. Passionate about code, problem-solving, and
           innovation, I craft solutions that connect people and ideas with
           impact.
         </p>
       </div>
+    </div>
+    <div class="w-full md:max-w-4xl mx-auto px-4 py-4">
+      <Skills />
     </div>
   </div>
 </template>

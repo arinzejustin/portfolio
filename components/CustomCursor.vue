@@ -39,6 +39,14 @@ onMounted(() => {
     );
     el.addEventListener("mouseleave", () => (cursorClass.value = ""));
   });
+
+  document.querySelectorAll(".cursor-app").forEach((el) => {
+    el.addEventListener(
+      "mouseenter",
+      () => (cursorClass.value = "cursor-hover")
+    );
+    el.addEventListener("mouseleave", () => (cursorClass.value = ""));
+  });
 });
 </script>
 
