@@ -235,11 +235,7 @@ export default defineComponent({
       class="relative w-full max-w-3xl h-[250px] overflow-hidden border-b border-app"
     >
       <div
-        v-for="(skill, i) in [
-          ...skills.slice(randomIndex, randomIndex + 1),
-          ...skills.slice(0, randomIndex),
-          ...skills.slice(randomIndex + 1),
-        ]"
+        v-for="(skill, i) in [...skills].sort(() => Math.random() - 0.5)"
         :key="i"
         class="group absolute skill-box w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full flex items-center justify-center font-bold border-2 cursor-pointer hover:border-4 border-app transition-all duration-300 opacity-100 hover:scale-110 hover:z-10"
         style="will-change: transform"
