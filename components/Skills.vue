@@ -202,24 +202,24 @@ export default defineComponent({
           // First bounce
           .to(box, {
             y: finalPos.y - gsap.utils.random(25, 45),
-            duration: 0.25,
+            duration: 0.19,
             ease: "power2.out",
           })
           .to(box, {
             y: finalPos.y,
             x: finalPos.x, // settle to exact position
-            duration: 0.25,
+            duration: 0.19,
             ease: "power2.in",
           })
           // Second bounce (smaller)
           .to(box, {
             y: finalPos.y - gsap.utils.random(10, 20),
-            duration: 0.15,
+            duration: 0.12,
             ease: "power2.out",
           })
           .to(box, {
             y: finalPos.y,
-            duration: 0.15,
+            duration: 0.12,
             ease: "power2.in",
           })
           // Final tiny bounce
@@ -247,20 +247,20 @@ export default defineComponent({
     id="skills-section"
     class="relative w-full py-8 pb-1 flex flex-col items-center"
   >
-    <h2 class="text-3xl font-bold mb-5 font-funky">What I'm Good At</h2>
-    <p class="text-center mb-2 pb-6 max-w-2xl text-sm md:text-base">
+    <h2 class="text-3xl font-bold mb-5 font-funky blur-text">What I'm Good At</h2>
+    <p class="text-center mb-2 pb-6 max-w-2xl text-sm md:text-base blur-text">
       I have a diverse skill set in web, mobile and desktop development, from
       frontend to backend.
     </p>
     <!-- Container that fills up like a box -->
     <div
       id="skills-container"
-      class="relative w-full max-w-3xl h-[300px] overflow-hidden border-b border-app"
+      class="relative w-full max-w-3xl h-[300px] md:h-[270px] overflow-hidden border-b border-app"
     >
       <div
         v-for="(skill, i) in [...skills].sort(() => Math.random() - 0.5)"
         :key="i"
-        class="group absolute skill-box w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full flex items-center justify-center font-bold border-2 cursor-pointer hover:border-4 border-app transition-all duration-300 opacity-100 hover:scale-110 hover:z-10"
+        class="group absolute skill-box w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full flex items-center justify-center font-bold border-2 cursor-app hover:border-4 border-app transition-all duration-300 opacity-100 hover:scale-110 hover:z-10"
         style="will-change: transform"
       >
         <span

@@ -5,25 +5,37 @@ import gsap from "gsap";
 export default defineComponent({
   mounted() {
     // GSAP text blur (start blurred, then clear)
-    gsap.fromTo(
-      ".blur-text",
-      { filter: "blur(8px)", opacity: 0 },
-      {
-        filter: "blur(0px)",
-        opacity: 1,
-        duration: 1.5,
-        stagger: 0.3,
-        ease: "power2.out",
-      }
-    );
+    gsap.utils.toArray<HTMLElement>(".blur-text").forEach((el: HTMLElement) => {
+      gsap.fromTo(
+        el,
+        { filter: "blur(8px)", opacity: 0 },
+        {
+          filter: "blur(0px)",
+          opacity: 1,
+          duration: 1.5,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: el,
+            start: "top 85%", // when element is 85% from top
+            toggleActions: "play none none none",
+          },
+        }
+      );
+    });
 
-    // GSAP slide-in for divs
-    gsap.from(".slide-app", {
-      y: 100,
-      opacity: 0,
-      duration: 1.2,
-      stagger: 0.3,
-      ease: "power3.out",
+    // Animate divs with slide-in
+    gsap.utils.toArray<HTMLElement>(".slide-app").forEach((el: HTMLElement) => {
+      gsap.from(el, {
+        y: 100,
+        opacity: 0,
+        duration: 1.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 90%",
+          toggleActions: "play none none none",
+        },
+      });
     });
 
     // Zigzag line drawing
@@ -96,7 +108,7 @@ export default defineComponent({
           impact.
         </p>
         <div
-          class="my-4 mt-10 flex justify-start items-center space-x-6 flex-row text-left slide-app"
+          class="my-4 mt-10 flex justify-start items-center space-x-6 flex-row text-left"
         >
           <div class="rounded-full">
             <a
@@ -109,7 +121,7 @@ export default defineComponent({
 
               <!-- Button text -->
               <span
-                class="relative z-10 text-on-dark dark:text-on-light group-hover:text-teal-400 transition-colors duration-300"
+                class="relative z-10 text-on-dark dark:text-on-light group-hover:text-teal-400 transition-colors duration-300 blur-text"
               >
                 Hire Me!
               </span>
@@ -140,7 +152,7 @@ export default defineComponent({
                 d="M7.76 15.76a3.5 3.5 0 0 1-.76-4.24l1.5 1.5a2.5 2.5 0 0 0 3.54 3.54l1.5 1.5a3.5 3.5 0 0 1-4.24.76z"
               />
             </svg>
-            <span class="text-[#178d00] font-sans hidden md:block"
+            <span class="text-[#178d00] font-sans hidden md:block blur-text"
               >Available for project</span
             >
             <span class="text-[#178d00] font-sans md:hidden">Available</span>
@@ -148,10 +160,105 @@ export default defineComponent({
         </div>
       </div>
     </div>
-    <div class="border-b border-app my-2"></div>
+    <div class="w-full overflow-hidden slide-app pb-6 slide-app">
+      <Moving />
+    </div>
+    <div class="border-b border-app my-2 mt-6"></div>
     <div class="w-full md:max-w-4xl mx-auto px-4 py-4 slide-app">
       <Skills />
     </div>
+    <div class="w-full px-4 md:max-w-4xl py-8 mb-16 mx-auto slide-app">
+      <h2 class="text-3xl font-bold py-5 font-funky blur-text text-center">
+        My Developer Life
+      </h2>
+      <div class="my-8 flex space-y-8 flex-col md:max-w-2xl mx-auto">
+        <span class="blur-text font-sans text-sm md:text-base md:mx-2"
+          >I like to craft solid and scalable products with exceptional user
+          experiences, focusing on innovation and problem-solving across various
+          industries.</span
+        >
+        <span class="blur-text font-sans text-sm md:text-base md:mx-2">
+          I'm Justin Arinze, a 23-year-old Nigerian software developer, with 4+
+          years of experience in web development, app development (Flutter),
+          cloud computing, and desktop development (Electron Js). I specialize
+          in building robust applications, cloud platforms, and cutting-edge
+          tech solutions.
+        </span>
+        <span class="blur-text font-sans text-sm md:text-base md:mx-2">
+          A self-taught programmer, ranked among the top programmers in Enugu
+          State, Nigeria, I am an active speaker, and mentor passionate about
+          empowering others in tech. I'm also the CEO and founder of Axiolot
+          Hub, an information managament database for schools across Nigeria.
+        </span>
+      </div>
+      <div class="relative w-full md:max-w-2xl mx-auto h-[250px] my-12 group">
+        <div
+          class="slide-app cursor-app border border-app absolute top-0 left-[20%] bg-surface-light dark:bg-surface-dark px-2 pt-2 -rotate-12 shadow-xl rounded-xl overflow-hidden transition-all duration-500 group-hover:-rotate-12 group-hover:-translate-x-4 group-hover:scale-105"
+        >
+          <div
+            class="w-[200px] h-[200px] rounded-lg border-teal-500 border border-dotted"
+          >
+            <NuxtImg
+              alt="About image 1"
+              loading="lazy"
+              width="200"
+              height="200"
+              decoding="async"
+              :custom="true"
+              class="object-cover rounded-lg w-full h-full text-transparent"
+              v-slot="{ src, isLoaded, imgAttrs }"
+            >
+              <!-- Show the actual image when loaded -->
+              <img v-if="isLoaded" v-bind="imgAttrs" :src="src" />
+
+              <!-- Show a placeholder while loading -->
+              <img
+                v-else
+                class="object-cover rounded-lg w-full h-full text-transparent"
+                src="https://placehold.co/200x200"
+                alt="placeholder"
+            /></NuxtImg>
+          </div>
+          <span
+            class="text-xs font-funky blur-text flex justify-center py-1 pb-3 italic w-full text-center"
+            >@justin_axo</span
+          >
+        </div>
+        <div
+          class="slide-app cursor-app border border-app absolute top-10 right-[20%] bg-surface-light dark:bg-surface-dark px-2 pt-2 rotate-12 shadow-xl rounded-xl overflow-hidden transition-all duration-500 group-hover:rotate-12 group-hover:translate-x-4 group-hover:scale-105"
+        >
+          <div
+            class="w-[200px] h-[200px] rounded-lg border-teal-500 border border-dotted"
+          >
+            <NuxtImg
+              alt="About image 2"
+              loading="lazy"
+              width="200"
+              height="200"
+              decoding="async"
+              :custom="true"
+              class="object-cover rounded-lg w-full h-full text-transparent"
+              v-slot="{ src, isLoaded, imgAttrs }"
+            >
+              <!-- Show the actual image when loaded -->
+              <img v-if="isLoaded" v-bind="imgAttrs" :src="src" />
+
+              <!-- Show a placeholder while loading -->
+              <img
+                v-else
+                class="object-cover rounded-lg w-full h-full text-transparent"
+                src="https://placehold.co/200x200"
+                alt="placeholder"
+            /></NuxtImg>
+          </div>
+          <span
+            class="text-xs font-funky blur-text flex justify-center py-1 pb-3 italic w-full text-center"
+            >@arinzejustin</span
+          >
+        </div>
+      </div>
+    </div>
+    <div class="border-b border-app my-2 mt-6"></div>
   </div>
 </template>
 <style scoped>
