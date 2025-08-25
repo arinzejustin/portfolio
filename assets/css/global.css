@@ -40,7 +40,7 @@ body {
     @apply bg-surface-light dark:bg-surface-dark text-on-light dark:text-on-dark min-h-screen transition-all duration-500 overflow-x-hidden cursor-none scroll-smooth !important
 }
 
-a, button {
+a, button, select {
     @apply cursor-none !important;
 }
 
@@ -56,6 +56,11 @@ select:-webkit-autofill:focus {
     -webkit-text-fill-color: currentColor;
     -webkit-box-shadow: 0 0 0px 1000px transparent inset;
     transition: background-color 5000s ease-in-out 0s;
+}
+
+input,
+textarea {
+    @apply cursor-none !important;
 }
 
 input:-internal-autofill-selected {

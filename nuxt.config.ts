@@ -1,5 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import { defineNuxtConfig } from 'nuxt/config';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-05-15',
@@ -51,9 +54,17 @@ export default defineNuxtConfig({
     transpile: ['gsap'],
   },
   image: {
-    inject: true,
-    quality: 100,
-    densities: [1, 2, 3]
+    inject: true, // lets you use <NuxtImg> globally
+    quality: 100, // max quality
+    densities: [1, 2, 3], // retina/HDPI scaling
+    format: ["webp", "jpeg", "png"], // generate multiple formats
+    screens: {
+      sm: 320,
+      md: 640,
+      lg: 1024,
+      xl: 1280,
+      xxl: 1536,
+    },
   },
   tailwindcss: {
     cssPath: [
@@ -63,4 +74,9 @@ export default defineNuxtConfig({
       },
     ],
   },
+  runtimeConfig: {
+    googlePassKey: '',
+    googlePassUser: '',
+    myEmail: '',
+  }
 })

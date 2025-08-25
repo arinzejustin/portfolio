@@ -264,7 +264,7 @@ export default defineComponent({
         style="will-change: transform"
       >
         <span
-          class="text-xs md:text-sm text-center leading-tight px-2 select-none"
+          class="text-xs md:text-sm text-center leading-tight px-2 select-none blur-text"
           >{{ skill.name }}</span
         >
 
