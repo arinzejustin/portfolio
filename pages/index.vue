@@ -2,6 +2,8 @@
 import { defineComponent } from "vue";
 import gsap from "gsap";
 import { TextPlugin } from "gsap/TextPlugin";
+import CraftsData from "@/assets/json/crafts.json";
+import type { Craft } from "@/types/crafts";
 import { Icon } from "@iconify/vue";
 
 gsap.registerPlugin(TextPlugin);
@@ -92,34 +94,7 @@ export default defineComponent({
 
   data() {
     return {
-      crafts: [
-        {
-          title: "Axiolot Hub",
-          description:
-            "Manage all aspects of your school information with ease. The app includes an Academics Portal for accessing resources, an ePayment Portal for online transactions, an Analytics Portal for data-driven decisions, Site Management tools for website control, and a Staff Payment System for efficient payroll management.",
-          image: "/image/axiolot-hub.webp",
-          link: "/crafts/axiolot-hub",
-        },
-        // Add more crafts as needed
-        {
-          title: "Kada Sales",
-          description: "Kadasales is an all-in-one business management solution with a user friendly Point of sales system, Inventory Management feature, Accounting, Multi branching operations and more, tailored for businesses of all sizes.",
-          image: "/image/kadasales.webp",
-          link: "/crafts/kadasales",
-        },
-        {
-          title: "Portal Dashboard",
-          description: "Streamline academic data organization, track student proformance, manage grades, attendence, and examination results effortlessly.",
-          image: "/image/portal.webp",
-          link: "/crafts/portal",
-        },
-        {
-          title: "Ad blocker (Extension)",
-          description: "A Chrome extension that blocks intrusive ads, enhances browsing speed, and improves user experience by filtering unwanted content.",
-          image: "/image/adblocker.webp",
-          link: "/crafts/adblocker",
-        },
-      ],
+      Crafts: CraftsData as Craft[],
       experiences: [
         {
           year: "2025 - Present",
@@ -151,40 +126,6 @@ export default defineComponent({
   },
 
   mounted() {
-    // GSAP text blur (start blurred, then clear)
-    gsap.utils.toArray<HTMLElement>(".blur-text").forEach((el: HTMLElement) => {
-      gsap.fromTo(
-        el,
-        { filter: "blur(8px)", opacity: 0 },
-        {
-          filter: "blur(0px)",
-          opacity: 1,
-          duration: 1.5,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: el,
-            start: "top 85%", // when element is 85% from top
-            toggleActions: "play none none none",
-          },
-        }
-      );
-    });
-
-    // Animate divs with slide-in
-    gsap.utils.toArray<HTMLElement>(".slide-app").forEach((el: HTMLElement) => {
-      gsap.from(el, {
-        y: 100,
-        opacity: 0,
-        duration: 1.2,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: el,
-          start: "top 95%",
-          toggleActions: "play none none none",
-        },
-      });
-    });
-
     // Zigzag line drawing
     gsap.fromTo(
       ".svg-path",
@@ -412,20 +353,23 @@ export default defineComponent({
       <h2 class="text-3xl font-bold py-5 font-funky blur-text text-center">
         Crafts put together so far
       </h2>
-      <div class="my-4 mb-1 py-4 pb-8"></div>
+      <div class="my-4 mb-1 py-4 pb-8">
+        <MovingIcons />
+      </div>
       <div class="py-4 grid-cols-1 md:grid-cols-2 gap-8 grid align-middle items-center">
-        <NuxtLink :to="craft.link" v-for="(craft, i) in crafts" :key="i"
+        <NuxtLink :to="craft.link" v-for="(craft, i) in Crafts" :key="i"
           class="w-full rounded-2xl overflow-hidden border-[1.5px] border-app relative transition-all shadow-lg bg-slate-50 dark:bg-[#121212]">
-          <div class="px-5 pt-5 pb-7 rounded-2xl">
-            <div class="relative">
+          <div class="px-5 pt-5 pb-7 rounded-2xl group">
+            <div class="relative w-full h-[200px] overflow-hidden rounded-2xl">
               <NuxtImg :alt="craft.title" loading="lazy" width="700" height="380" decoding="async"
-                class="w-full h-auto object-contain rounded-2xl text-transparent" :custom="true"
-                v-slot="{ src, isLoaded, imgAttrs }" :src="craft.image" :srcset="craft.image">
+                class="w-full h-auto object-contain rounded-2xl text-transparent transition-transform duration-700 hover:scale-105"
+                :custom="true" v-slot="{ src, isLoaded, imgAttrs }" :src="craft.image" :srcset="craft.image">
                 <!-- Show the actual image when loaded -->
                 <img v-if="isLoaded" v-bind="imgAttrs" :src="src" />
 
                 <!-- Show a placeholder while loading -->
-                <img v-else class="w-full h-auto object-contain rounded-2xl text-transparent"
+                <img v-else
+                  class="w-full h-auto object-contain rounded-2xl text-transparent transition-transform duration-700 hover:scale-105"
                   src="https://placehold.co/700x380" srcset="https://placehold.co/700x380" :alt="craft.title" />
               </NuxtImg>
             </div>

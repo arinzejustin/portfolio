@@ -19,7 +19,9 @@ export default defineComponent({
   },
   mounted() {
     const timeout = setTimeout(() => {
-      this.newsLetter = true;
+      const nextTime = localStorage.getItem('nextTime');
+      if (!nextTime) return this.newsLetter = true;
+      this.newsLetter = Date.now() > Number(nextTime);
       clearTimeout(timeout)
     }, 3000)
   }

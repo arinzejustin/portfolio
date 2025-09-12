@@ -18,8 +18,8 @@
                   <img v-if="isLoaded" v-bind="imgAttrs" :src="src" />
 
                   <!-- Show a placeholder while loading -->
-                  <img v-else class="w-full h-[250px] md:object-contain rounded-xl"
-                    src="https://placehold.co/527x250" :alt="item.title" />
+                  <img v-else class="w-full h-[250px] md:object-contain rounded-xl" src="https://placehold.co/527x250"
+                    :alt="item.title" />
                 </NuxtImg>
               </div>
             </div>
@@ -65,15 +65,15 @@ export default defineComponent({
 
     onMounted(() => {
       if (track.value) {
-        const trackWidth = track.value.scrollWidth / 2;
+        const trackWidth = track.value.scrollWidth / 2; // half because we doubled the content
 
         marqueeTween = gsap.to(track.value, {
           x: -trackWidth,
           duration: 30,
           ease: "linear",
           repeat: -1,
-          modifiers: {
-            x: (x: string) => `${parseFloat(x) % -trackWidth}px`,
+          onRepeat: () => {
+            gsap.set(track.value, { x: 0 });
           },
           scrollTrigger: {
             trigger: track.value,
@@ -82,7 +82,7 @@ export default defineComponent({
           },
         });
 
-        // ✅ Per-item hover pause/resume
+        // pause on hover
         track.value.querySelectorAll(".marquee-item").forEach((el) => {
           const element = el as HTMLElement;
           element.addEventListener("mouseenter", () => marqueeTween?.pause());

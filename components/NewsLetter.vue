@@ -34,7 +34,10 @@
                             :class="{ 'pointer-events-none opacity-70': loading }"
                             class="group w-full relative inline-flex items-center justify-center rounded-full px-6 py-3.5 text-base font-medium bg-surface-dark dark:bg-surface-light dark:hover:bg-transparent hover:bg-transparent transition-all duration-500">
                             <span class="gradient-ring pointer-events-none"></span>
-                            <span v-if="loading"></span>
+                            <span v-if="loading">
+                                <span class="sr-only">Loading...</span>
+                                <CircleLoader :height="'20px'" :width="'20px'" :auto="'auto'" />
+                            </span>
                             <span v-else
                                 class="relative blur-text z-10 text-on-dark dark:text-on-light group-hover:text-teal-400 transition-colors duration-300">
                                 Subscribe
@@ -57,7 +60,8 @@
                             <div class="text-sm font-medium text-slate-500 font-mono">I will surely miss you buddy or is
                                 there anything you want me to improve on ?
 
-                                <NuxtLink to="//wa.me/+2347073184665" class="text-emerald-300 font-display">Reach
+                                <NuxtLink target="_blank" to="//wa.me/+2347073184665"
+                                    class="text-emerald-300 font-display">Reach
                                     out
                                     to me
                                 </NuxtLink>
@@ -84,7 +88,10 @@
                             :class="{ 'pointer-events-none opacity-70': loading }"
                             class="group w-full relative inline-flex items-center justify-center rounded-full px-6 py-3.5 text-base font-medium bg-surface-dark dark:bg-surface-light dark:hover:bg-transparent hover:bg-transparent transition-all duration-500">
                             <span class="gradient-ring pointer-events-none"></span>
-                            <span v-if="loading"></span>
+                            <span v-if="loading">
+                                <span class="sr-only">Loading...</span>
+                                <CircleLoader :height="'20px'" :width="'20px'" :auto="'auto'" />
+                            </span>
                             <span v-else
                                 class="relative blur-text z-10 text-on-dark dark:text-on-light group-hover:text-teal-400 transition-colors duration-300">
                                 Unsubscribe
@@ -108,7 +115,8 @@ import { defineComponent } from 'vue'
 export default defineComponent({
     methods: {
         close() {
-            this.$emit('close', false)
+            this.$emit('close', false);
+            localStorage.setItem('nextTime', (Number(Date.now().toString()) + 60 * 60 * 5 * 1000).toString());
         },
 
         validate() {
@@ -142,7 +150,7 @@ export default defineComponent({
                         this.email = '';
                     } else {
                         this.color = 'text-red-500';
-                        this.message = 'An error occurred. Please try again later.';
+                        this.message = res.message || 'An error occurred. Please try again later.';
                     }
                     this.loading = false;
                 })

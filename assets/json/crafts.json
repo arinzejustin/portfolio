@@ -1,0 +1,90 @@
+[
+    {
+        "title": "Axiolot Hub",
+        "subtitle": "School Management System",
+        "description": "Manage all aspects of your school information with ease. The app includes an Academics Portal for accessing resources, an ePayment Portal for online transactions, an Analytics Portal for data-driven decisions, Site Management tools for website control, and a Staff Payment System for efficient payroll management.",
+        "image": "/image/axiolot-hub.webp",
+        "link": "/craft/axiolot-hub",
+        "techstack": [
+            "Nuxt 3",
+            "Tailwind CSS",
+            "Django",
+            "PostgreSQL",
+            "Docker",
+            "Nginx"
+        ],
+        "date": "2023",
+        "features": [
+            "Feature 1",
+            "Feature 2",
+            "Feature 3"
+        ],
+        "liveUrl": ""
+    },
+    {
+        "title": "Kada Sales",
+        "subtitle": "School Management System",
+        "description": "Kadasales is an all-in-one business management solution with a user friendly Point of sales system, Inventory Management feature, Accounting, Multi branching operations and more, tailored for businesses of all sizes.",
+        "image": "/image/kadasales.webp",
+        "link": "/craft/kadasales",
+        "techstack": [
+            "Nuxt 3",
+            "Tailwind CSS",
+            "Django",
+            "PostgreSQL",
+            "Docker",
+            "Nginx"
+        ],
+        "date": "2023",
+        "features": [
+            "Feature 1",
+            "Feature 2",
+            "Feature 3"
+        ],
+        "liveUrl": ""
+    },
+    {
+        "title": "Portal Dashboard",
+        "subtitle": "School Management System",
+        "description": "Streamline academic data organization, track student proformance, manage grades, attendence, and examination results effortlessly.",
+        "image": "/image/portal.webp",
+        "link": "/craft/portal",
+        "techstack": [
+            "Nuxt 3",
+            "Tailwind CSS",
+            "Django",
+            "PostgreSQL",
+            "Docker",
+            "Nginx"
+        ],
+        "date": "2023",
+        "features": [
+            "Feature 1",
+            "Feature 2",
+            "Feature 3"
+        ],
+        "liveUrl": ""
+    },
+    {
+        "title": "Ad blocker (Extension)",
+        "subtitle": "School Management System",
+        "description": "A Chrome extension that blocks intrusive ads, enhances browsing speed, and improves user experience by filtering unwanted content.",
+        "image": "/image/adblocker.webp",
+        "link": "/craft/adblocker",
+        "techstack": [
+            "Nuxt 3",
+            "Tailwind CSS",
+            "Django",
+            "PostgreSQL",
+            "Docker",
+            "Nginx"
+        ],
+        "date": "2023",
+        "features": [
+            "Feature 1",
+            "Feature 2",
+            "Feature 3"
+        ],
+        "liveUrl": ""
+    }
+]

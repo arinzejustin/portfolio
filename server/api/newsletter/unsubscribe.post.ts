@@ -18,7 +18,7 @@ function isValidEmail(email: string): boolean {
 export default defineEventHandler(async (event) => {
     // Verify origin
     const origin = (getHeader(event, "origin") || getHeader(event, "referer") || "").replace(/\/$/, "")
-    const ALLOWED_ORIGIN = ['http://localhost:3001', 'https://arinzejustin.netlify.app']; // e.g. https://yourdomain.com
+    const ALLOWED_ORIGIN = ['http://localhost:3000', 'https://arinzejustin.netlify.app']; // e.g. https://yourdomain.com
     if (!ALLOWED_ORIGIN.includes(origin)) {
         return { status: false, message: "Unauthorized request" }
     }
