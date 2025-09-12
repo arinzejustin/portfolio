@@ -9,12 +9,20 @@ export default defineComponent({
 
   setup() {
     const { theme, toggleTheme } = useTheme();
+    const newsLetter = ref<boolean>(false)
 
     return {
       theme,
       toggleTheme,
+      newsLetter
     };
   },
+  mounted() {
+    const timeout = setTimeout(() => {
+      this.newsLetter = true;
+      clearTimeout(timeout)
+    }, 3000)
+  }
 });
 </script>
 <template>
@@ -24,15 +32,16 @@ export default defineComponent({
       <NuxtPage />
       <CustomCursor />
     </NuxtLayout>
-    <button
-      @click="toggleTheme"
-      class="fixed bottom-5 md:top-6 md:bottom-auto right-5 rounded-full glass glass-lg border border-app p-2.5"
-    >
-      <Icon
-        :icon="theme === 'dark' ? 'solar:sun-line-duotone' : 'solar:moon-broken'"
-        class="w-6 h-6 text-on-light dark:text-on-dark"
-      />
+    <button @click="toggleTheme"
+      class="fixed bottom-5 md:top-6 md:bottom-auto right-5 rounded-full glass glass-lg border border-app p-2.5">
+      <Icon :icon="theme === 'dark' ? 'solar:sun-line-duotone' : 'solar:moon-broken'"
+        class="w-6 h-6 text-on-light dark:text-on-dark" />
     </button>
+    <Transition name="circle">
+      <div v-if="newsLetter" class="fixed bottom-5 left-2 z-[100000]">
+        <NewsLetter @close="newsLetter = false" />
+      </div>
+    </Transition>
   </div>
 </template>
 
@@ -56,12 +65,10 @@ export default defineComponent({
 }
 
 .navigateLoader {
-  background: repeating-linear-gradient(
-    to right,
-    var(--load-color-1) 0%,
-    var(--load-color-2) 50%,
-    var(--load-color-3) 100%
-  ) !important;
+  background: repeating-linear-gradient(to right,
+      var(--load-color-1) 0%,
+      var(--load-color-2) 50%,
+      var(--load-color-3) 100%) !important;
   box-shadow: 0px 2px 8px var(--load-shadow) !important;
   transition: width 0.1s, opacity 0.4s, background 0.3s, height 0.4s ease-in-out !important;
 }

@@ -46,7 +46,7 @@ export default defineNuxtConfig({
       ]
     },
     pageTransition: {
-      name: 'blur',
+      name: 'fold',
       mode: 'out-in'
     },
   },
@@ -78,5 +78,7 @@ export default defineNuxtConfig({
     googlePassKey: '',
     googlePassUser: '',
     myEmail: '',
+    supabaseUrl: '',
+    supabaseAnonKey: '',
   }
 })

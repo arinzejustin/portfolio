@@ -35,6 +35,12 @@
     @apply font-display !important;
 }
 
+@property --border-angle {
+    inherits: false;
+    initial-value: 0deg;
+    syntax: '<angle>';
+}
+
 html,
 body {
     @apply bg-surface-light dark:bg-surface-dark text-on-light dark:text-on-dark min-h-screen transition-all duration-500 overflow-x-hidden cursor-none scroll-smooth !important

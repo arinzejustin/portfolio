@@ -183,8 +183,7 @@ export default defineComponent({
             placeholder="Your Message"
             class="w-full px-4 py-5 bg-slate-50 dark:bg-[#121212] placeholder:text-on-light dark:placeholder:text-on-dark resize-none rounded-3xl border border-app focus:ring-2 focus:ring-teal-400 focus:outline-none text-on-light dark:text-on-dark"
           ></textarea>
-
-          <!-- Gradient Send Button -->
+          
           <a @click="sendMessage()"
             :disabled="loading"
             type="submit"

@@ -1,54 +1,34 @@
 <template>
   <div class="relative">
     <!-- Marquee Wrapper -->
-    <div class="marquee overflow-hidden flex flex-row relative w-full">
-      <div
-        ref="track"
-        class="marquee-track flex flex-row items-center flex-[0_0_auto]"
-        :class="{ paused: isPaused }"
-        @click="togglePause"
-      >
+    <div class="marquee overflow-hidden flex flex-row relative w-full py-3">
+      <div ref="track" class="marquee-track flex flex-row items-center flex-[0_0_auto]" :class="{ paused: isPaused }"
+        @click="togglePause">
         <!-- Loop items twice for seamless infinite scroll -->
-        <div
-          v-for="(item, i) in [...items, ...items]"
-          :key="i"
-          class="flex px-6 md:px-3 cursor-app" :title="item.title"
-        >
+        <div v-for="(item, i) in [...items, ...items]" :key="i" class="flex px-6 md:px-3 cursor-app"
+          :title="item.title">
           <div
-            class="marquee-item flex min-w-[400px] w-full glass rounded-xl overflow-hidden border-[1.5px] border-app relative transition-all hover:scale-[1.01]"
-          >
+            class="marquee-item flex min-w-[400px] w-full glass rounded-xl overflow-hidden border-[1.5px] border-app relative transition-all hover:scale-[1.01]">
             <!-- Image container -->
-            <div
-              class="p-8 rounded-xl w-full"
-              style="box-shadow: rgba(0, 0, 0, 0.25) 0px 10px 16px -3px"
-            >
-              <div
-                class="relative"
-                style="filter: drop-shadow(rgba(0, 0, 0, 0.1) 0px 10px 7px)"
-              >
-                <NuxtImg
-                  :alt="item.title"
-                  loading="lazy"
-                  decoding="async"
-                  class="w-full h-[250px] md:object-cover rounded-xl"
-                  :src="item.image"
-                />
+            <div class="p-8 rounded-xl w-full" style="box-shadow: rgba(0, 0, 0, 0.25) 0px 10px 16px -3px">
+              <div class="relative" style="filter: drop-shadow(rgba(0, 0, 0, 0.1) 0px 10px 7px)">
+                <NuxtImg :alt="item.title" loading="lazy" decoding="async"
+                  class="w-full h-[250px] md:object-cover rounded-xl" :custom="true"
+                  v-slot="{ src, isLoaded, imgAttrs }" :src="item.image">
+                  <img v-if="isLoaded" v-bind="imgAttrs" :src="src" />
+
+                  <!-- Show a placeholder while loading -->
+                  <img v-else class="w-full h-[250px] md:object-contain rounded-xl"
+                    src="https://placehold.co/527x250" :alt="item.title" />
+                </NuxtImg>
               </div>
             </div>
 
             <!-- Decorative dots -->
-            <div
-              class="absolute dot-shadow w-2 h-2 top-4 left-4 rounded-full bg-[#e6e6e6] dark:bg-[#121212]"
-            ></div>
-            <div
-              class="absolute dot-shadow w-2 h-2 bottom-4 left-4 rounded-full bg-[#e6e6e6] dark:bg-[#121212]"
-            ></div>
-            <div
-              class="absolute dot-shadow w-2 h-2 top-4 right-4 rounded-full bg-[#e6e6e6] dark:bg-[#121212]"
-            ></div>
-            <div
-              class="absolute dot-shadow w-2 h-2 bottom-4 right-4 rounded-full bg-[#e6e6e6] dark:bg-[#121212]"
-            ></div>
+            <div class="absolute dot-shadow w-2 h-2 top-4 left-4 rounded-full bg-[#e6e6e6] dark:bg-[#121212]"></div>
+            <div class="absolute dot-shadow w-2 h-2 bottom-4 left-4 rounded-full bg-[#e6e6e6] dark:bg-[#121212]"></div>
+            <div class="absolute dot-shadow w-2 h-2 top-4 right-4 rounded-full bg-[#e6e6e6] dark:bg-[#121212]"></div>
+            <div class="absolute dot-shadow w-2 h-2 bottom-4 right-4 rounded-full bg-[#e6e6e6] dark:bg-[#121212]"></div>
           </div>
         </div>
       </div>
@@ -67,10 +47,11 @@ export default defineComponent({
   name: "Moving",
   setup() {
     const items = ref([
-      { title: "RunMeCV AI", image: "/image/pxxl.webp" },
-      { title: "Portfolio Site", image: "/image/pxxl.webp" },
-      { title: "E-Commerce UI", image: "/image/pxxl.webp" },
-      { title: "Dashboard Design", image: "/image/pxxl.webp" },
+      { title: "Axiolot Hub", image: "/image/axiolot-hub.webp" },
+      { title: "Kada Sales", image: "/image/kadasales.webp" },
+      { title: "Sites Dashboard", image: "/image/sites.webp" },
+      { title: "Portal Dashboard", image: "/image/portal.webp" },
+      { title: "CIC ENUGU", image: "/image/cic-enugu.webp" },
     ]);
 
     const isPaused = ref(false);
@@ -102,9 +83,10 @@ export default defineComponent({
         });
 
         // ✅ Per-item hover pause/resume
-        track.value.querySelectorAll(".marquee-item").forEach((el: HTMLElement) => {
-          el.addEventListener("mouseenter", () => marqueeTween?.pause());
-          el.addEventListener("mouseleave", () => {
+        track.value.querySelectorAll(".marquee-item").forEach((el) => {
+          const element = el as HTMLElement;
+          element.addEventListener("mouseenter", () => marqueeTween?.pause());
+          element.addEventListener("mouseleave", () => {
             if (!isPaused.value) marqueeTween?.resume();
           });
         });
