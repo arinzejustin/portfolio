@@ -11,31 +11,3 @@
     </ClientOnly>
   </div>
 </template>
-<script setup lang="ts">
-
-
-let observer: MutationObserver;
-
-onMounted(() => {
-  const { animateElements } = useGsapAnimations();
-  const router = useRouter();
-
-  animateElements();
-
-  // Observe new DOM nodes (e.g. from client-side navigation)
-  observer = new MutationObserver(() => {
-    animateElements();
-  });
-
-  observer.observe(document.body, { childList: true, subtree: true });
-
-  // Also re-run on route changes
-  router.afterEach(() => {
-    setTimeout(() => animateElements(), 100);
-  });
-});
-
-onBeforeUnmount(() => {
-  if (observer) observer.disconnect();
-});
-</script>

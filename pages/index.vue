@@ -124,8 +124,53 @@ export default defineComponent({
       ],
     };
   },
+  
+  methods: {
+    openUrl(url: string) {
+      window.open(url, "_blank");
+    },
+  },
 
   mounted() {
+    gsap.utils.toArray<HTMLElement>(".blur-text").forEach((el: HTMLElement) => {
+      gsap.fromTo(
+        el,
+        { filter: "blur(8px)", opacity: 0 },
+        {
+          filter: "blur(0px)",
+          opacity: 1,
+          duration: 1.5,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: el,
+            start: "top 85%", // when element is 85% from top
+            toggleActions: "play none none none",
+          },
+          onComplete: () => {
+            gsap.set(el, { clearProps: "all" }); // Clear all inline styles after animation
+          }
+        }
+      );
+    });
+
+    // Animate divs with slide-in
+    gsap.utils.toArray<HTMLElement>(".slide-app").forEach((el: HTMLElement) => {
+      gsap.from(el, {
+        y: 100,
+        opacity: 0,
+        duration: 1.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 95%",
+          toggleActions: "play none none none",
+        },
+        onComplete: () => {
+          gsap.set(el, { clearProps: "all" }); // Clear all inline styles after animation
+        }
+      });
+    });
+
     // Zigzag line drawing
     gsap.fromTo(
       ".svg-path",
@@ -177,7 +222,7 @@ export default defineComponent({
         <NuxtImg src="/image/pfp.png" class="rounded-full w-[100px] h-[100px] blur-text" alt="Profile picture" />
       </div>
 
-      <div class="text-center slide-app mt-6">
+      <div class="text-center mt-6 space-y-1">
         <!-- Texts all start blurred -->
         <h2
           class="blur-text text-[26px] font-display md:text-[42px] lg:text-[58px] font-bold tracking-[-.03em] leading-[110%] mb-2 md:mb-2">
@@ -189,7 +234,9 @@ export default defineComponent({
         <h3 class="blur-text text-xl font-sans md:text-4xl font-bold tracking-[-.03em] leading-[110%] mb-0">
           Software Engineer
         </h3>
+      </div>
 
+      <div class="text-center slide-app mt-0">
         <!-- Zigzag + arrow -->
         <div class="flex justify-center my-0">
           <svg xmlns="http://www.w3.org/2000/svg" width="60" height="100" viewBox="0 0 24 24" class="rotated-svg">
@@ -306,7 +353,7 @@ export default defineComponent({
         </span>
       </div>
       <div class="relative w-full md:max-w-2xl mx-auto h-12 my-8 md:my-12 group">
-        <div
+        <div @click="openUrl('https://www.instagram.com/justin_axo')"
           class="slide-app cursor-app border-dashed border-app [background:linear-gradient(45deg,#f1f1f1,theme(colors.surface.light)_50%,#f0f0f0)_padding-box,conic-gradient(from_var(--border-angle),theme(colors.slate.600/.48)_80%,_theme(colors.teal.500)_86%,_theme(colors.teal.300)_90%,_theme(colors.sky.500)_94%,_theme(colors.purple.600/.48))_border-box] dark:[background:linear-gradient(45deg,#121212,theme(colors.surface.dark)_50%,#151515)_padding-box,conic-gradient(from_var(--border-angle),theme(colors.slate.600/.48)_80%,_theme(colors.teal.500)_86%,_theme(colors.teal.300)_90%,_theme(colors.sky.500)_94%,_theme(colors.purple.600/.48))_border-box] border border-transparent animate-border absolute top-0 left-[1%] md:left-[20%] bg-surface-light dark:bg-surface-dark px-2 pt-2 -rotate-12 shadow-xl rounded-xl overflow-hidden transition-all duration-500 group-hover:-rotate-12 group-hover:-translate-x-4 group-hover:scale-105">
           <div class="w-[200px] h-[200px] rounded-lg border-teal-500 border border-dotted hidden">
             <NuxtImg alt="About image 1" loading="lazy" width="200" height="200" decoding="async" :custom="true"
@@ -326,7 +373,7 @@ export default defineComponent({
             <span class="font-mono text-xs block mt-1">on Instagram</span>
           </span>
         </div>
-        <div
+        <div @click="openUrl('https://www.linkedin.com/in/justin-arinze')"
           class="slide-app cursor-app border-dashed border-app [background:linear-gradient(45deg,#f1f1f1,theme(colors.surface.light)_50%,#f0f0f0)_padding-box,conic-gradient(from_var(--border-angle),theme(colors.slate.600/.48)_80%,_theme(colors.teal.500)_86%,_theme(colors.teal.300)_90%,_theme(colors.sky.500)_94%,_theme(colors.purple.600/.48))_border-box] dark:[background:linear-gradient(45deg,#121212,theme(colors.surface.dark)_50%,#151515)_padding-box,conic-gradient(from_var(--border-angle),theme(colors.slate.600/.48)_80%,_theme(colors.teal.500)_86%,_theme(colors.teal.300)_90%,_theme(colors.sky.500)_94%,_theme(colors.purple.600/.48))_border-box] border border-transparent animate-border absolute top-10 right-[1%] md:right-[20%] bg-surface-light dark:bg-surface-dark px-2 pt-2 rotate-12 shadow-xl rounded-xl overflow-hidden transition-all duration-500 group-hover:rotate-12 group-hover:translate-x-4 group-hover:scale-105">
           <div class="w-[200px] h-[200px] rounded-lg border-teal-500 border border-dotted hidden">
             <NuxtImg alt="About image 2" loading="lazy" width="200" height="200" decoding="async" :custom="true"
@@ -359,7 +406,7 @@ export default defineComponent({
       <div class="py-4 grid-cols-1 md:grid-cols-2 gap-8 grid align-middle items-center">
         <NuxtLink :to="craft.link" v-for="(craft, i) in Crafts" :key="i"
           class="w-full rounded-2xl overflow-hidden border-[1.5px] border-app relative transition-all shadow-lg bg-slate-50 dark:bg-[#121212]">
-          <div class="px-5 pt-5 pb-7 rounded-2xl group">
+          <div class="px-5 pt-5 pb-0 md:pb-4 lg:pb-6 rounded-2xl group">
             <div class="relative w-full h-[200px] overflow-hidden rounded-2xl">
               <NuxtImg :alt="craft.title" loading="lazy" width="700" height="380" decoding="async"
                 class="w-full h-auto object-contain rounded-2xl text-transparent transition-transform duration-700 hover:scale-105"
@@ -382,7 +429,7 @@ export default defineComponent({
               {{ craft.description }}
             </p>
             <a role="button"
-              class="relative inline-flex items-center justify-center px-6 py-3 rounded-full text-base font-medium overflow-hidden group bg-surface-dark dark:bg-surface-light text-on-light dark:text-on-dark hover:bg-transparent dark:hover:bg-transparent hover:px-7 hover:pr-4 transition-all duration-700">
+              class="relative inline-flex w-1/2 md:w-[none] items-center justify-center px-6 py-3 rounded-full text-base font-medium overflow-hidden group bg-surface-dark dark:bg-surface-light text-on-light dark:text-on-dark hover:bg-transparent dark:hover:bg-transparent hover:px-7 hover:pr-4 transition-all duration-700">
               <!-- Animated gradient border -->
               <span class="gradient-ring pointer-events-none"></span>
 
@@ -427,7 +474,7 @@ export default defineComponent({
               {{ experience.year }}
             </span>
           </div>
-          <div class="flex items-center gap-2">
+          <div class="flex items-center gap-2 justify-between md:justify-start">
             <div class="text-base md:text-lg text-on-light dark:text-on-dark blur-text">
               {{ experience.role }}
             </div>

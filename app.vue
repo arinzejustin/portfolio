@@ -9,7 +9,7 @@ export default defineComponent({
 
   setup() {
     const { theme, toggleTheme } = useTheme();
-    const newsLetter = ref<boolean>(false)
+    const newsLetter = ref<boolean>(false);
 
     return {
       theme,

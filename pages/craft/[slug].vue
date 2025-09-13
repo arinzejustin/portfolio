@@ -55,7 +55,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="pt-6 mt-6 mb-0 pb-0 flex flex-col md:flex-row justify-between items-center align-middle gap-y-5 md:gap-y-0">
+                    <div
+                        class="pt-6 mt-6 mb-0 pb-0 flex flex-col md:flex-row justify-between items-center align-middle gap-y-5 md:gap-y-0">
                         <div>
                             <NuxtLink target="_blank" role="button" :to="currentCraft?.liveUrl"
                                 class="relative inline-flex items-center justify-center px-6 py-3 rounded-3xl text-base font-medium overflow-hidden group bg-surface-dark dark:bg-surface-light text-on-light dark:text-on-dark hover:bg-transparent dark:hover:bg-transparent hover:px-7 hover:pr-4 transition-all duration-700">
@@ -108,6 +109,7 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue';
+import gsap from "gsap";
 import { Icon } from '@iconify/vue'
 import CraftsData from '@/assets/json/crafts.json';
 import type { Craft } from '~/types/crafts'
@@ -172,14 +174,18 @@ export default defineComponent({
                 : null;
         }
     },
-    mounted() {
+
+    async mounted() {
+        this.animate();
         this.findCraft();
         this.updateHead();
 
-        const timeout = setTimeout(() => {
-            this.loading = false;
-            clearTimeout(timeout);
-        }, 1200);
+        await new Promise((resolve) => setTimeout(resolve, 800));
+        this.loading = false;
+
+        // Wait 1.2s (simulate loading or transitions)
+        await new Promise((resolve) => setTimeout(resolve, 500));
+        this.animate();
     },
 
     methods: {
@@ -200,6 +206,47 @@ export default defineComponent({
             const link = this.page;
             const index = this.crafts.findIndex(c => c.link === link);
             this.currentIndex = index;
+        },
+
+        animate() {
+            gsap.utils.toArray<HTMLElement>(".blur-text").forEach((el: HTMLElement) => {
+                gsap.fromTo(
+                    el,
+                    { filter: "blur(8px)", opacity: 0 },
+                    {
+                        filter: "blur(0px)",
+                        opacity: 1,
+                        duration: 1.5,
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: el,
+                            start: "top 85%", // when element is 85% from top
+                            toggleActions: "play none none none",
+                        },
+                        onComplete: () => {
+                            gsap.set(el, { clearProps: "all" }); // Clear all inline styles after animation
+                        }
+                    }
+                );
+            });
+
+            // Animate divs with slide-in
+            gsap.utils.toArray<HTMLElement>(".slide-app").forEach((el: HTMLElement) => {
+                gsap.from(el, {
+                    y: 100,
+                    opacity: 0,
+                    duration: 1.2,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: el,
+                        start: "top 95%",
+                        toggleActions: "play none none none",
+                    },
+                    onComplete: () => {
+                        gsap.set(el, { clearProps: "all" }); // Clear all inline styles after animation
+                    }
+                });
+            });
         }
     }
 })

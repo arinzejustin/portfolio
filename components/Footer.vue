@@ -153,7 +153,7 @@ export default defineComponent({
     </div>
     <div class="border-t border-app my-8 mb-5"></div>
     <div class="flex px-4 justify-center flex-col space-y-4 w-full md:pb-8 mx-auto md:max-w-4xl">
-      <p class="text-sm text-center blur-text">
+      <p class="text-sm text-center">
         Copyright &copy; {{ new Date().getFullYear() }} Arinze Justin
       </p>
       <div class="flex flex-row justify-center space-x-6 items-center">
