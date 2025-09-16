@@ -101,7 +101,7 @@ export default defineComponent({
       </a>
       <a
         role="button"
-        href="https://arinzejustin.me/resume.pdf"
+        href="/pdf/resume.pdf"
         target="_blank"
         class="rounded-full p-2.5 hover-bg hover:mx-0.5 hover:md:mx-2 transition-all duration-300 ease-in-out border-r border-app mr-4"
       >
