@@ -8,4 +8,5 @@ export interface Craft {
     date: string;
     features: string[];
     liveUrl: string;
+    client: string;
 }

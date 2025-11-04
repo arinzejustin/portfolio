@@ -51,7 +51,7 @@ export default defineComponent({
       { title: "Kada Sales", image: "/image/kadasales.webp" },
       { title: "Sites Dashboard", image: "/image/sites.webp" },
       { title: "Portal Dashboard", image: "/image/portal.webp" },
-      { title: "CIC ENUGU", image: "/image/cic-enugu.webp" },
+      { title: "Student Dashboard", image: "/image/student-portal.png" },
     ]);
 
     const isPaused = ref(false);

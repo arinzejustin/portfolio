@@ -1,90 +1,133 @@
 [
-    {
-        "title": "Axiolot Hub",
-        "subtitle": "School Management System",
-        "description": "Manage all aspects of your school information with ease. The app includes an Academics Portal for accessing resources, an ePayment Portal for online transactions, an Analytics Portal for data-driven decisions, Site Management tools for website control, and a Staff Payment System for efficient payroll management.",
-        "image": "/image/axiolot-hub.webp",
-        "link": "/craft/axiolot-hub",
-        "techstack": [
-            "Nuxt 3",
-            "Tailwind CSS",
-            "Django",
-            "PostgreSQL",
-            "Docker",
-            "Nginx"
-        ],
-        "date": "2023",
-        "features": [
-            "Feature 1",
-            "Feature 2",
-            "Feature 3"
-        ],
-        "liveUrl": ""
-    },
-    {
-        "title": "Kada Sales",
-        "subtitle": "School Management System",
-        "description": "Kadasales is an all-in-one business management solution with a user friendly Point of sales system, Inventory Management feature, Accounting, Multi branching operations and more, tailored for businesses of all sizes.",
-        "image": "/image/kadasales.webp",
-        "link": "/craft/kadasales",
-        "techstack": [
-            "Nuxt 3",
-            "Tailwind CSS",
-            "Django",
-            "PostgreSQL",
-            "Docker",
-            "Nginx"
-        ],
-        "date": "2023",
-        "features": [
-            "Feature 1",
-            "Feature 2",
-            "Feature 3"
-        ],
-        "liveUrl": ""
-    },
-    {
-        "title": "Portal Dashboard",
-        "subtitle": "School Management System",
-        "description": "Streamline academic data organization, track student proformance, manage grades, attendence, and examination results effortlessly.",
-        "image": "/image/portal.webp",
-        "link": "/craft/portal",
-        "techstack": [
-            "Nuxt 3",
-            "Tailwind CSS",
-            "Django",
-            "PostgreSQL",
-            "Docker",
-            "Nginx"
-        ],
-        "date": "2023",
-        "features": [
-            "Feature 1",
-            "Feature 2",
-            "Feature 3"
-        ],
-        "liveUrl": ""
-    },
-    {
-        "title": "Ad blocker (Extension)",
-        "subtitle": "School Management System",
-        "description": "A Chrome extension that blocks intrusive ads, enhances browsing speed, and improves user experience by filtering unwanted content.",
-        "image": "/image/adblocker.webp",
-        "link": "/craft/adblocker",
-        "techstack": [
-            "Nuxt 3",
-            "Tailwind CSS",
-            "Django",
-            "PostgreSQL",
-            "Docker",
-            "Nginx"
-        ],
-        "date": "2023",
-        "features": [
-            "Feature 1",
-            "Feature 2",
-            "Feature 3"
-        ],
-        "liveUrl": ""
-    }
+  {
+    "title": "Axiolot Hub",
+    "subtitle": "School Management System",
+    "description": "Manage all aspects of your school information with ease. The app includes an Academics Portal for accessing resources, an ePayment Portal for online transactions, an Analytics Portal for data-driven decisions, Site Management tools for website control, and a Staff Payment System for efficient payroll management.",
+    "image": "/image/axiolot-hub.webp",
+    "link": "/craft/axiolot-hub",
+    "techstack": [
+      "Next.js",
+      "Tailwind CSS",
+      "Gsap",
+      "Chakra UI",
+      "Docker",
+      "Nginx",
+      "Git",
+      "Go",
+      "TypeScript",
+      "Vercel"
+    ],
+    "date": "2023",
+    "features": [
+      "Student and staff management",
+      "Online fee payment system",
+      "Performance and result tracking",
+      "Analytics dashboard",
+      "Website content control",
+      "Automated payroll system",
+      "Secure login and access control",
+      "Mobile-friendly interface"
+    ],
+    "liveUrl": "https://axiolot.com.ng",
+    "client": "Axiolot Hub"
+  },
+  {
+    "title": "Kada Sales",
+    "subtitle": "School Management System",
+    "description": "Kadasales is an all-in-one business management solution with a user friendly Point of sales system, Inventory Management feature, Accounting, Multi branching operations and more, tailored for businesses of all sizes.",
+    "image": "/image/kadasales.webp",
+    "link": "/craft/kadasales",
+    "techstack": [
+      "PHP",
+      "Bootstrap CSS",
+      "Laravel",
+      "MySQL",
+      "Git",
+      "JavaScript"
+    ],
+    "date": "2023",
+    "features": [
+      "Point of sales",
+      "Inventory Management",
+      "Accounting",
+      "Multi Branching Operations"
+    ],
+    "liveUrl": "https://kadasales.com",
+    "client": "Kada Sales"
+  },
+  {
+    "title": "Admin Portal Dashboard",
+    "subtitle": "Admin Dashboard Management System",
+    "description": "Interface that allows administrators to manage, track student performance, manage grades, attendance, and examination results effortlessly.",
+    "image": "/image/portal.webp",
+    "link": "/craft/portal",
+    "techstack": [
+      "Nuxt 3",
+      "Tailwind CSS",
+      "Vuetify",
+      "MySQL",
+      "Docker",
+      "GO",
+      "PHP",
+      "Chart.js",
+      "Git",
+      "TypeScript",
+      "Vercel",
+      "Nginx"
+    ],
+    "date": "2023",
+    "features": [
+      "Uploading students results",
+      "Tracking student performance",
+      "Sending customized notifications for students"
+    ],
+    "liveUrl": "https://portal.axiolot.com.ng",
+    "client": "Axiolot Hub"
+  },
+  {
+    "title": "Highlightly (Extension)",
+    "subtitle": "",
+    "description": "A Browser extension that lets you highlight, save, and sync your favorite lines from any webpage. Get instant word meanings with a hover and access your saved highlights anytime, on any device. Perfect for students, researchers, and lifelong learners",
+    "image": "/image/adblocker.webp",
+    "link": "/craft/adblocker",
+    "techstack": ["Nuxt 3", "Tailwind CSS", "Shadcn-ui", "JavaScript", "Git"],
+    "date": "2025",
+    "features": [
+      "Instant Word Meaning",
+      "Sync Across Devices",
+      "Smart Sentence Highlighting",
+      "Offline Access"
+    ],
+    "liveUrl": "https://"
+  },
+  {
+    "title": "Site Management",
+    "subtitle": "Site Management System For Schools",
+    "description": "A web application that allows school administrators to manage their website content, including adding, editing, and deleting pages, posts, and images.",
+    "image": "/image/site-management.webp",
+    "link": "/craft/site-management",
+    "techstack": [
+      "Svelte",
+      "Tailwind CSS",
+      "Shadcn-ui",
+      "TypeScript",
+      "Git",
+      "Docker",
+      "Go",
+      "MySQL",
+      "Svelte Material UI",
+      "Chart.js",
+      "Vercel",
+      "Nginx"
+    ],
+    "date": "2024",
+    "features": [
+      "Content Management",
+      "Image Upload",
+      "SEO Optimization",
+      "School Events Management"
+    ],
+    "liveUrl": "https://sites.axiolot.com.ng",
+    "client": "Axiolot Hub"
+  }
 ]
