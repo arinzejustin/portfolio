@@ -3,8 +3,8 @@
         <div class="w-full relative z-50 md:max-w-4xl mx-auto px-4 py-8">
             <div v-if="loading" class="flex min-h-[50vh] justify-center">
                 <CircleLoader
-                    :height="'80px'"
-                    :width="'80px'"
+                    :height="'30px'"
+                    :width="'30px'"
                     :auto="'auto'"
                     divClass="flex justify-center flex-col min-h-[50vh]"
                     className="dark:border-[white_white_transparent] border-[black_black_transparent] change"
