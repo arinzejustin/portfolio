@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Okechukwu Justin Arinze - Resume</title>
+    <style>
+        @font-face {
+            font-family: "highlight-font";
+            src: url("./fonts/Hartwell-Regular.otf") format("opentype");
+            font-style: normal;
+            font-weight: 300 800;
+            font-stretch: 100%;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: "highlight-font";
+            src: url("./fonts/Hartwell-Bold.otf") format("opentype");
+            font-style: bold;
+            font-weight: 600 900;
+            font-stretch: 100%;
+            font-display: swap;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'highlight-font', serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #fff;
+            padding: 50px 60px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            padding: 30px 0;
+            border-top: 4px solid #2c3e50;
+            border-bottom: 4px solid #2c3e50;
+            margin-bottom: 30px;
+            background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 100%);
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: 800;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #34495e;
+            font-weight: 600;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .contact-info {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .links {
+            margin-top: 12px;
+            font-size: 14px;
+        }
+
+        .links a {
+            color: #2c3e50;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: 600;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .links a:hover {
+            border-bottom: 2px solid #2c3e50;
+        }
+
+        h2 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #fff;
+            background: #2c3e50;
+            padding: 8px 15px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border-left: 5px solid #3498db;
+        }
+
+        h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 3px;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+
+        .company {
+            font-weight: 600;
+            font-size: 15px;
+            color: #34495e;
+        }
+
+        .date {
+            font-style: italic;
+            font-size: 14px;
+            color: #7f8c8d;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 15px;
+            margin-bottom: 10px;
+            text-align: justify;
+            color: #2c3e50;
+        }
+
+        ul {
+            margin-left: 25px;
+            margin-bottom: 12px;
+        }
+
+        li {
+            font-size: 15px;
+            margin-bottom: 6px;
+            text-align: justify;
+            color: #2c3e50;
+            position: relative;
+        }
+
+        li::marker {
+            color: #3498db;
+            font-weight: bold;
+        }
+
+        li strong {
+            color: #2c3e50;
+            background: #fff9e6;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+
+        .skills-section {
+            font-size: 15px;
+            margin-bottom: 10px;
+            padding: 8px 15px;
+            background: #f8f9fa;
+            border-left: 3px solid #3498db;
+        }
+
+        .skills-section strong {
+            display: inline-block;
+            min-width: 140px;
+            color: #2c3e50;
+            font-weight: 700;
+        }
+
+        .project {
+            margin-bottom: 15px;
+            padding: 12px 15px;
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .project-title {
+            font-weight: 700;
+            font-size: 16px;
+            color: #2c3e50;
+            margin-bottom: 3px;
+        }
+
+        .project-subtitle {
+            font-style: italic;
+            font-size: 14px;
+            color: #7f8c8d;
+            margin-bottom: 5px;
+        }
+
+        .project p {
+            margin-bottom: 5px;
+        }
+
+        .project-link {
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .project-link a {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid #3498db;
+        }
+
+        .section-content {
+            padding-left: 15px;
+        }
+
+        .education-block {
+            padding: 10px 15px;
+            background: #f8f9fa;
+            border-left: 3px solid #3498db;
+            margin-bottom: 10px;
+        }
+
+        .cert-list {
+            columns: 2;
+            column-gap: 20px;
+        }
+
+        .cert-list li {
+            break-inside: avoid;
+        }
+
+        .interests-content {
+            text-align: center;
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            font-size: 16px;
+            color: #2c3e50;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .summary-box {
+            padding: 15px 20px;
+            background: #f8f9fa;
+            border-left: 5px solid #3498db;
+            border-radius: 0 5px 5px 0;
+        }
+
+        @media print {
+            body {
+                padding: 20px 30px;
+            }
+
+            .header {
+                background: #f8f9fa;
+            }
+
+            a {
+                text-decoration: none;
+            }
+
+            .cert-list {
+                columns: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Okechukwu Justin Arinze</h1>
+        <div class="subtitle">Full-Stack Software Developer</div>
+
+        <div class="contact-info">
+            📍23 NTA Rd, Independence Layout, Enugu 400102, Enugu State, Nigeria<br>
+            📞 07073184665 | ✉️ codewitharinzejustin@gmail.com | 📱 +2347081317077
+        </div>
+
+        <div class="links">
+            <a href="https://linkedin.com/in/justin-arinze-627137382">LinkedIn</a> •
+            <a href="https://github.com/arinzejustin">GitHub</a> •
+            <a href="https://arinzejustin.netlify.app">Portfolio</a> •
+            <a href="https://twitter.com/justin_axo">Twitter</a> •
+            <a href="https://hackerrank.com/arinzejustin">HackerRank</a>
+        </div>
+    </div>
+
+    <h2>Professional Summary</h2>
+    <div class="summary-box">
+        <p>Accomplished full-stack developer with 4+ years of experience building scalable web and desktop applications
+            across education, e-commerce, and government sectors. Specialized in modern JavaScript frameworks (Vue.js,
+            Nuxt.js, Svelte), backend development (PHP, GoLang, Node.js), and cross-platform solutions (Electron,
+            Flutter). Proven track record of optimizing system performance by up to 98% and delivering complete
+            solutions from architecture to deployment. Adept at working independently and collaborating with
+            cross-functional teams to create robust, maintainable applications.</p>
+    </div>
+
+    <h2>Technical Skills</h2>
+    <div class="section-content">
+        <div class="skills-section"><strong>Languages:</strong> TypeScript, JavaScript, GoLang, Python, PHP, Dart, CSS
+        </div>
+        <div class="skills-section"><strong>Frontend:</strong> Vue.js, Nuxt.js/Nuxt 3, Svelte, Tailwind CSS, VuetifyJs
+        </div>
+        <div class="skills-section"><strong>Backend:</strong> Node.js, Bun, PHP, Python, RESTful APIs, Slim Framework,
+            GoLang</div>
+        <div class="skills-section"><strong>Mobile & Desktop:</strong> Flutter (Dart), ElectronJs</div>
+        <div class="skills-section"><strong>Database:</strong> MySQL (query optimization, relational design), Supabase
+            (authentication, storage, edge functions)</div>
+        <div class="skills-section"><strong>DevOps & Tools:</strong> Git, GitHub, Vercel, Netlify, Cloudflare,
+            Serverless deployment workflows</div>
+        <div class="skills-section"><strong>Infrastructure:</strong> Reverse proxy configuration (Nginx), familiarity
+            with Envoy concepts, basic cloud architecture patterns</div>
+        <div class="skills-section"><strong>Methodologies:</strong> Object-Oriented Programming, Version Control, System
+            Architecture, API Integration and Design Patterns</div>
+    </div>
+
+    <h2>Professional Experience</h2>
+    <div class="section-content">
+        <h3>Personal Technical Assistant (Chairman's Office)</h3>
+        <div class="job-header">
+            <span class="company">PPSMB (School Board) | Enugu, Nigeria</span>
+            <span class="date">2025 - Present</span>
+        </div>
+        <ul>
+            <li>Serve as the Personal Technical Assistant to the Chairman, providing comprehensive support on all
+                technology-related initiatives and digital transformation strategies</li>
+            <li>Active member of the Chairman's technology committee, advising on digital strategies and recommending
+                innovative solutions to modernize operations</li>
+            <li>Manage and maintain the Chairman's official communication platform, ensuring seamless and secure
+                collaboration with key government officials including the Governor and Commissioners</li>
+            <li>Oversee technical operations to maintain smooth digital communication and information flow between the
+                Chairman's office and government agencies</li>
+        </ul>
+
+        <h3>Founder</h3>
+        <div class="job-header">
+            <span class="company">Axiolot Hub | Nigeria</span>
+            <span class="date">2022 - Present</span>
+        </div>
+        <ul>
+            <li>Designed, developed, and deployed a comprehensive school management system as the sole developer,
+                managing the entire project lifecycle from planning to deployment</li>
+            <li>Built a responsive frontend using Vue.js (Nuxt.js) and engineered scalable backend systems with PHP and
+                GoLang, implementing RESTful APIs for efficient data handling</li>
+            <li>Integrated MySQL database with optimized complex queries for efficient data storage and retrieval</li>
+            <li>Implemented robust authentication, authorization flows, and role-based access control to ensure data
+                security and compliance</li>
+            <li><strong>Achieved 98% performance improvement</strong>, enabling the platform to seamlessly support
+                4,000+ students</li>
+            <li><strong>Reduced page load times by nearly 10 seconds</strong> through query optimization, caching
+                strategies, and efficient API integration</li>
+            <li>Currently developing a cross-platform desktop version using Electron with offline support and enhanced
+                performance</li>
+            <li>Deployed using Cloudflare for security/CDN and Vercel for serverless hosting and global distribution
+            </li>
+            <li>Maintained comprehensive documentation of system architecture, database schema, and deployment processes
+            </li>
+        </ul>
+
+        <h3>Frontend Developer</h3>
+        <div class="job-header">
+            <span class="company">Kada Sales | Enugu State, Nigeria</span>
+            <span class="date">2023 - 2024</span>
+        </div>
+        <ul>
+            <li>Built the frontend of a customizable multi-vendor e-commerce platform with unique branding, color
+                themes, and storefront layouts for each vendor</li>
+            <li>Integrated support for vendor-specific custom domains, enabling independent branded web addresses for
+                each store</li>
+            <li>Designed a dynamic product display system allowing vendors to independently showcase and manage their
+                product catalogs</li>
+        </ul>
+
+        <h3>Freelance Software Developer</h3>
+        <div class="job-header">
+            <span class="company">Upwork | Remote</span>
+            <span class="date">2022 - 2024</span>
+        </div>
+        <ul>
+            <li>Delivered fast, scalable, and user-friendly applications for clients worldwide using Vue.js/Nuxt.js,
+                PHP, Python, and Electron</li>
+            <li>Built complete solutions from frontend UI to backend APIs and database design</li>
+            <li>Ensured clean code, strong architecture, and long-term maintainability for production-ready applications
+            </li>
+            <li>Worked on numerous private solutions including advanced Web3 ecosystem projects involving
+                blockchain-based features and custom platforms</li>
+        </ul>
+
+        <h3>Software Developer to Schools (Under Axiolot Hub)</h3>
+        <div class="job-header">
+            <span class="company">Multiple Educational Institutions | Enugu, Nigeria</span>
+            <span class="date">2021 - 2024</span>
+        </div>
+        <p style="margin-left: 10px; font-style: italic; color: #7f8c8d;">College of the Immaculate Conception
+            (2021-2023) • Solid Foundation (2022-2024) • Mea Meter High School (2021-2024)</p>
+        <ul>
+            <li>Developed full-stack web applications and integrated schools into Axiolot Hub, significantly reducing
+                teacher workload and result management time</li>
+        </ul>
+    </div>
+
+    <h2>Education</h2>
+    <div class="section-content">
+        <div class="education-block">
+            <div class="job-header">
+                <span class="company"><strong>Bachelor of Science in Economics</strong> (Expected 2026)</span>
+            </div>
+            <p>Peaceland University | Enugu State, Nigeria</p>
+        </div>
+    </div>
+
+    <h2>Certifications</h2>
+    <div class="section-content">
+        <ul class="cert-list">
+            <li><strong>Python (Advanced)</strong> - HackerRank, 2025</li>
+            <li><strong>CCNA (In Progress)</strong> - with David Bombal, 2025</li>
+            <li><strong>Python (Basic)</strong> - HackerRank, 2024</li>
+            <li><strong>Problem Solving (Intermediate)</strong> - HackerRank, 2024</li>
+            <li><strong>TypeScript (Advanced)</strong> - HackerRank, 2023</li>
+            <li><strong>JavaScript (Intermediate)</strong> - HackerRank, 2023</li>
+            <li><strong>Node.js (Intermediate)</strong> - 2023</li>
+            <li><strong>PHP (Advanced)</strong> - HackerRank, 2022</li>
+        </ul>
+    </div>
+
+    <h2>Featured Projects</h2>
+    <div class="section-content">
+        <div class="project">
+            <div class="project-title">Axiolot Hub</div>
+            <div class="project-subtitle">Information Management System For Schools</div>
+            <p>A full-featured platform streamlining administrative, academic, and financial operations for educational
+                institutions. Offers tools to enhance learning experiences, improve communication, and simplify
+                management for students and teachers.</p>
+            <div class="project-link">🔗 <a href="https://axiolot.com.ng">axiolot.com.ng</a></div>
+        </div>
+
+        <div class="project">
+            <div class="project-title">Alt Image - Placeholder & Avatar Generator</div>
+            <div class="project-subtitle">Web-based Design Tool</div>
+            <p>Web platform generating custom placeholder images based on width/height specifications and unique UI
+                avatars for mockups, dashboards, and user interfaces.</p>
+            <div class="project-link">🔗 <a href="https://altimg.cloud">altimg.cloud</a></div>
+        </div>
+
+        <div class="project">
+            <div class="project-title">Site Blocker</div>
+            <div class="project-subtitle">Browser Extension for Productivity</div>
+            <p>Browser extension helping users maintain focus by blocking distracting websites and setting custom time
+                limits for online activities.</p>
+            <div class="project-link">🔗 <a href="https://github.com/arinzejustin/blocker">GitHub Repository</a></div>
+        </div>
+
+        <div class="project">
+            <div class="project-title">Highlight</div>
+            <div class="project-subtitle">Browser Extension for Productivity</div>
+            <p>Highlight makes understanding new words effortless. Just select any word on any webpage and a clean
+                floating popup appears with its definition. No switching tabs, no dictionary apps, everything happens
+                instantly where you're reading.</p>
+            <div class="project-link">🔗 <a href="https://github.com/arinzejustin/highlight">GitHub Repository</a></div>
+        </div>
+
+        <p
+            style="margin-top: 15px; padding: 10px 15px; background: #fff9e6; border-left: 3px solid #f39c12; border-radius: 0 5px 5px 0;">
+            <strong>Note:</strong> In addition to public projects, I have delivered numerous private solutions for
+            clients across various industries, including Web3 ecosystem applications featuring blockchain integration,
+            custom platforms, and secure, scalable architectures.
+        </p>
+    </div>
+
+    <h2>Interests</h2>
+    <div class="interests-content">
+        Coding • Reading • Gaming (Call of Duty) • Watching Football
+    </div>
+</body>
+
+</html>
