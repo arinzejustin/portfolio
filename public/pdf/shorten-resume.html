@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Okechukwu Justin Arinze - Resume</title>
+
+    <!-- Your Styling (UNCHANGED) -->
+    <style>
+        @font-face {
+            font-family: "highlight-font";
+            src: url("./fonts/Hartwell-Regular.otf") format("opentype");
+            font-style: normal;
+            font-weight: 300 800;
+            font-stretch: 100%;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: "highlight-font";
+            src: url("./fonts/Hartwell-Bold.otf") format("opentype");
+            font-style: bold;
+            font-weight: 600 900;
+            font-stretch: 100%;
+            font-display: swap;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'highlight-font', serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #fff;
+            padding: 20px 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            padding: 5px 0 10px 0;
+            border-top: 4px solid #2c3e50;
+            border-bottom: 4px solid #2c3e50;
+            margin-bottom: 10px;
+            background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 100%);
+        }
+
+        h1 {
+            font-size: 34px;
+            font-weight: 800;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: #34495e;
+            font-weight: 600;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .contact-info {
+            font-size: 13px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .links {
+            margin-top: 12px;
+            font-size: 13px;
+        }
+
+        .links a {
+            color: #2c3e50;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: 600;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .links a:hover {
+            border-bottom: 2px solid #2c3e50;
+        }
+
+        h2 {
+            font-size: 15px;
+            font-weight: 700;
+            color: #fff;
+            background: #2c3e50;
+            padding: 8px 15px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border-left: 5px solid #3498db;
+        }
+
+        h3 {
+            font-size: 14px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 3px;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+
+        .company {
+            font-weight: 600;
+            font-size: 14px;
+            color: #34495e;
+        }
+
+        .date {
+            font-style: italic;
+            font-size: 13px;
+            color: #7f8c8d;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 14px;
+            margin-bottom: 10px;
+            text-align: justify;
+            color: #2c3e50;
+        }
+
+        ul {
+            margin-left: 25px;
+            margin-bottom: 12px;
+        }
+
+        li {
+            font-size: 14px;
+            margin-bottom: 6px;
+            text-align: justify;
+            color: #2c3e50;
+        }
+
+        li::marker {
+            color: #3498db;
+            font-weight: bold;
+        }
+
+        .skills-section {
+            font-size: 14px;
+            margin-bottom: 10px;
+            padding: 8px 15px;
+            background: #f8f9fa;
+            border-left: 3px solid #3498db;
+        }
+
+        .skills-section strong {
+            display: inline-block;
+            min-width: 140px;
+            color: #2c3e50;
+            font-weight: 700;
+        }
+
+        .project {
+            margin-bottom: 15px;
+            padding: 12px 15px;
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .project-title {
+            font-weight: 700;
+            font-size: 14px;
+            color: #2c3e50;
+            margin-bottom: 3px;
+        }
+
+        .project-subtitle {
+            font-style: italic;
+            font-size: 13px;
+            color: #7f8c8d;
+            margin-bottom: 5px;
+        }
+
+        .project-link a {
+            font-size: 13px;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>Okechukwu Justin Arinze</h1>
+        <div class="subtitle">Full-Stack Software Developer</div>
+
+        <div class="contact-info">
+            📍23 NTA Rd, Independence Layout, Enugu 400102, Enugu State, Nigeria<br>
+            📞 07073184665 | ✉️ codewitharinzejustin@gmail.com | 📱 +2347081317077
+        </div>
+
+        <div class="links">
+            <a href="https://linkedin.com/in/justin-arinze-627137382">LinkedIn</a> •
+            <a href="https://github.com/arinzejustin">GitHub</a> •
+            <a href="https://arinzejustin.netlify.app">Portfolio</a> •
+            <a href="https://twitter.com/justin_axo">Twitter</a> •
+            <a href="https://hackerrank.com/arinzejustin">HackerRank</a> •
+            <a href="https://arinzejustin.netlify.app/pdf/resume.pdf">Detailed Resume</a>
+        </div>
+    </div>
+
+    <h2>Professional Summary</h2>
+    <div class="summary-box">
+        <p>
+            Full-stack developer with 4+ years of experience delivering high-performance applications across education,
+            e-commerce, and enterprise sectors. Skilled in Vue.js, Nuxt.js, Svelte, Go, PHP, Node.js, and cross-platform
+            tools such as Electron and Flutter. Strong background in database optimization, API engineering, and system
+            architecture. Proven ability to design complete solutions from concept to deployment with measurable
+            performance improvements.
+        </p>
+    </div>
+
+    <h2>Technical Skills</h2>
+    <div class="section-content">
+        <div class="skills-section"><strong>Languages:</strong> TypeScript, JavaScript, Go, Python, PHP, Dart</div>
+        <div class="skills-section"><strong>Frontend:</strong> Vue.js, Nuxt 3, Svelte, Tailwind, Vuetify</div>
+        <div class="skills-section"><strong>Backend:</strong> Node.js, Bun, PHP, Go, REST APIs, Slim Framework</div>
+        <div class="skills-section"><strong>Database:</strong> MySQL, Supabase</div>
+        <div class="skills-section"><strong>DevOps:</strong> Git, GitHub, Vercel, Netlify, Cloudflare</div>
+        <div class="skills-section"><strong>Infrastructure:</strong> Nginx reverse proxy, cloud architecture basics
+        </div>
+    </div>
+
+    <h2>Professional Experience</h2>
+    <div class="section-content">
+
+        <h3>Personal Technical Assistant</h3>
+        <div class="job-header">
+            <span class="company">PPSMB (Government Board) — Enugu</span>
+            <span class="date">2025 – Present</span>
+        </div>
+        <ul>
+            <li>Support the Chairman on technology initiatives and digital transformation strategy.</li>
+            <li>Manage technical communication systems and oversee internal digital workflows.</li>
+            <li>Advise on modernization of operations across key government interactions.</li>
+        </ul>
+
+        <h3>Founder / Lead Developer</h3>
+        <div class="job-header">
+            <span class="company">Axiolot Hub — Nigeria</span>
+            <span class="date">2022 – Present</span>
+        </div>
+        <ul>
+            <li>Designed and built a full school management SaaS using Vue.js, PHP, Go, and MySQL.</li>
+            <li>Achieved 98% performance improvement through query optimization and caching.</li>
+            <li>Currently developing the desktop version using Electron with offline support.</li>
+            <li>Deployed using Cloudflare security + Vercel serverless infrastructure.</li>
+        </ul>
+
+        <h3>Frontend Developer</h3>
+        <div class="job-header">
+            <span class="company">Kada Sales — Enugu</span>
+            <span class="date">2023 – 2024</span>
+        </div>
+        <ul>
+            <li>Developed the frontend for a multi-vendor e-commerce platform with custom themes.</li>
+            <li>Implemented vendor-specific domain support and dynamic product rendering.</li>
+        </ul>
+
+        <h3>Freelance Software Developer</h3>
+        <div class="job-header">
+            <span class="company">Upwork — Remote</span>
+            <span class="date">2022 – 2024</span>
+        </div>
+        <ul>
+            <li>Delivered production-ready applications using Nuxt.js, PHP, Python, and Electron.</li>
+            <li>Completed multiple private Web3 and blockchain-related solutions.</li>
+        </ul>
+
+    </div>
+
+    <h2>Education</h2>
+    <div class="section-content">
+        <div class="education-block">
+            <strong>B.Sc. Economics (Expected 2026)</strong><br>
+            Peaceland University, Enugu
+        </div>
+    </div>
+
+    <h2>Projects</h2>
+    <div class="section-content">
+
+        <div class="project">
+            <div class="project-title">Axiolot Hub</div>
+            <div class="project-subtitle">School Information Management System</div>
+            <p>End-to-end platform for academic records, finance, communication, and administration.</p>
+            <div class="project-link"><a href="#">Visit</a></div>
+        </div>
+
+        <div class="project">
+            <div class="project-title">Uptime Monitor</div>
+            <div class="project-subtitle">Tool for Monitoring Website Uptime</div>
+            <p>A production-ready uptime monitoring service built with Go, featuring intelligent retry logic, rate
+                limiting, automated email fallbacks, and comprehensive health checking with SSL certificate tracking and
+                multi-channel notifications.</p>
+            <div class="project-link">🔗 <a href="https://github.com/arinzejustin/uptime-monitor">GitHub Repository</a>
+            </div>
+        </div>
+
+        <div class="project">
+            <div class="project-title">Highlight</div>
+            <div class="project-subtitle">Browser Extension</div>
+            <p>Instant inline dictionary pop-ups for any selected word on any webpage.</p>
+            <div class="project-link"><a href="#">GitHub</a></div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
