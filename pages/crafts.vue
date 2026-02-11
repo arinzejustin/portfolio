@@ -97,7 +97,7 @@ export default defineComponent({
 </script>
 
 <template>
-    <div class="relative">
+    <div class="relative pt-32">
         <div class="w-full relative z-50 md:max-w-4xl mx-auto px-4 py-8">
             <div class="my-4 mb-1 py-4 pb-8">
                 <MovingIcons />

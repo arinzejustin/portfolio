@@ -40,7 +40,7 @@ export default defineNuxtConfig({
       link: [
         {
           rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&family=Space+Grotesk:wght@400;700&display=swap',
+          href: 'https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&family=Space+Grotesk:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap',
           crossorigin: 'anonymous',
         }
       ]

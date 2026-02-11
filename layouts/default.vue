@@ -3,7 +3,7 @@
     <ClientOnly>
       <Header />
     </ClientOnly>
-    <div class="mt-20 md:mt-28 flex-[1] overflow-hidden relative">
+    <div class="flex-[1] mt-10">
       <slot />
     </div>
     <ClientOnly>

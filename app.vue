@@ -35,7 +35,7 @@ export default defineComponent({
       <CustomCursor />
     </NuxtLayout>
     <button @click="toggleTheme"
-      class="fixed bottom-5 md:top-6 md:bottom-auto right-5 rounded-full glass glass-lg border border-app p-2.5">
+      class="fixed bottom-5 md:top-6 md:bottom-auto right-5 rounded-full glass glass-lg border border-app p-2.5 z-[100000]">
       <Icon :icon="theme === 'dark' ? 'solar:sun-line-duotone' : 'solar:moon-broken'"
         class="w-6 h-6 text-on-light dark:text-on-dark" />
     </button>
