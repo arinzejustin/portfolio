@@ -26,12 +26,15 @@ export default defineComponent({
     components: { Icon },
     setup() {
         const containerRef = ref<HTMLElement | null>(null);
+        const sectionRef = ref<HTMLElement | null>(null);
         const balls = ref<Ball[]>([]);
+        const hasStarted = ref(false);
         let animationFrame: number;
         let containerWidth = 0;
         let containerHeight = 0;
         const mouseX = ref(-1000);
         const mouseY = ref(-1000);
+        let observer: IntersectionObserver | null = null;
 
         const techStack = [
             { name: "HTML", color: "#E34F26", icon: "vscode-icons:file-type-html" },
@@ -58,7 +61,7 @@ export default defineComponent({
             containerWidth = containerRef.value.clientWidth;
             containerHeight = containerRef.value.clientHeight;
 
-            // Create balls
+            // Create balls — positioned above the container, invisible until started
             balls.value = techStack.map((tech, i) => ({
                 id: i,
                 name: tech.name,
@@ -74,6 +77,11 @@ export default defineComponent({
         };
 
         const updatePhysics = () => {
+            if (!hasStarted.value) {
+                animationFrame = requestAnimationFrame(updatePhysics);
+                return;
+            }
+
             balls.value.forEach(ball => {
                 // Gravity
                 ball.vy += GRAVITY;
@@ -187,27 +195,52 @@ export default defineComponent({
             }
         };
 
+        const startSimulation = () => {
+            if (hasStarted.value) return;
+            hasStarted.value = true;
+        };
+
         onMounted(async () => {
             await nextTick();
             initBalls();
             window.addEventListener('resize', onResize);
             window.addEventListener('mousemove', onMouseMove);
             animationFrame = requestAnimationFrame(updatePhysics);
+
+            // Use IntersectionObserver to detect when the section scrolls into view
+            if (sectionRef.value) {
+                observer = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach((entry) => {
+                            if (entry.isIntersecting) {
+                                startSimulation();
+                                // Once started, we can disconnect
+                                observer?.disconnect();
+                            }
+                        });
+                    },
+                    {
+                        threshold: 0.15, // Trigger when 15% of the section is visible
+                    }
+                );
+                observer.observe(sectionRef.value);
+            }
         });
 
         onUnmounted(() => {
             cancelAnimationFrame(animationFrame);
             window.removeEventListener('resize', onResize);
             window.removeEventListener('mousemove', onMouseMove);
+            observer?.disconnect();
         });
 
-        return { containerRef, balls };
+        return { containerRef, sectionRef, balls, hasStarted };
     }
 });
 </script>
 
 <template>
-    <section id="skills-section" class="relative w-full py-10 pb-5 flex flex-col items-center overflow-hidden">
+    <section id="skills-section" ref="sectionRef" class="relative w-full py-10 pb-5 flex flex-col items-center overflow-hidden">
         <div class="z-10 text-center mb-8">
             <h2 class="text-3xl md:text-5xl font-display font-bold mb-4 tracking-tight">Technical <span
                     class="text-accent-gold font-serif italic">Arsenal</span></h2>

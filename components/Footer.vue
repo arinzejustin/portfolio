@@ -102,7 +102,7 @@ export default defineComponent({
 
       <div class="flex flex-col md:flex-row items-center justify-center gap-6 relative z-10">
         <a href="mailto:codewitharinzejustin@gmail.com"
-          class="px-8 py-4 bg-on-light dark:bg-white text-surface-dark font-bold rounded-full hover:scale-105 transition-transform duration-300 flex items-center gap-3">
+          class="px-8 py-4 bg-on-light dark:bg-white text-surface-light dark:text-surface-dark font-bold rounded-full hover:scale-105 transition-transform duration-300 flex items-center gap-3">
           <Icon icon="ph:envelope-simple" class="w-5 h-5" />
           <span>codewitharinzejustin@gmail.com</span>
         </a>
@@ -111,7 +111,7 @@ export default defineComponent({
             class="p-4 bg-surface-dark/50 hover:bg-surface-dark border border-white/10 rounded-full transition-colors group">
             <Icon icon="pajamas:twitter" class="w-5 h-5 text-on-muted group-hover:text-white" />
           </a>
-          <a href="https://www.linkedin.com/in/justin-arinze" target="_blank"
+          <a href="https://www.linkedin.com/in/justin-arinze-627137382" target="_blank"
             class="p-4 bg-surface-dark/50 hover:bg-surface-dark border border-white/10 rounded-full transition-colors group">
             <Icon icon="skill-icons:linkedin" class="w-5 h-5 grayscale group-hover:grayscale-0" />
           </a>

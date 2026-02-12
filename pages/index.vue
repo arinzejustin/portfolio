@@ -6,8 +6,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import CraftsData from "@/assets/json/crafts.json";
 import type { Craft } from "@/types/crafts";
 import { Icon } from "@iconify/vue";
-import Moving from "@/components/Moving.vue";
 import Skills from "@/components/Skills.vue";
+import Moving from "@/components/Moving.vue";
+import MovingIcons from "@/components/MovingIcons.vue";
 
 gsap.registerPlugin(TextPlugin, ScrollTrigger);
 
@@ -16,6 +17,7 @@ export default defineComponent({
         Icon,
         Moving,
         Skills,
+        MovingIcons,
     },
 
     setup() {
@@ -158,7 +160,7 @@ export default defineComponent({
 
         <!-- Hero Section -->
         <section
-            class="relative z-10 w-full min-h-screen flex flex-col md:flex-row items-center justify-center md:justify-start pt-24 pb-12 px-4 md:px-16 max-w-[1400px] mx-auto gap-12 md:gap-20">
+            class="relative z-10 w-full min-h-screen flex flex-col md:flex-row items-center justify-center md:justify-start pt-24 pb-12 px-4 md:px-16 max-w-[1400px] mx-auto gap-12 md:gap-20 overflow-y-hidden">
 
             <!-- Profile Column (Left Side) -->
             <div class="hero-element relative flex-shrink-0 w-48 h-48 md:w-[400px] md:h-[500px]">
@@ -251,14 +253,17 @@ export default defineComponent({
         </section>
 
         <!-- Divider -->
-        <div class="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent my-10"></div>
+        <div class="w-full h-px bg-gradient-to-r from-transparent via-black/10 dark:via-white/10 to-transparent my-6">
+        </div>
 
         <!-- Crafts Section -->
         <section class="relative z-10 py-20 px-4 md:px-8 max-w-7xl mx-auto">
-            <h2 class="text-center font-display text-4xl mb-16 reveal-section">Selected <span
+            <h2 class="text-center font-display text-4xl mb-6 reveal-section">Selected <span
                     class="text-accent-gold font-serif italic">Crafts</span></h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <MovingIcons />
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mt-10">
                 <NuxtLink v-for="(craft, i) in Crafts.slice(0, 4)" :key="i" :to="craft.link"
                     class="group relative block rounded-2xl overflow-hidden glass border border-white/10 hover:border-accent-gold/30 transition-all duration-500 reveal-section">
                     <div class="aspect-video w-full overflow-hidden">
@@ -284,7 +289,7 @@ export default defineComponent({
 
             <div class="text-center mt-12 reveal-section">
                 <NuxtLink to="/crafts"
-                    class="inline-flex items-center gap-2 px-8 py-3 rounded-full border border-white/20 hover:bg-white/5 transition-all duration-300">
+                    class="inline-flex items-center gap-2 px-8 py-3 rounded-full border border-app hover:bg-white/5 transition-all duration-300">
                     <span>View All Crafts</span>
                     <Icon icon="ph:arrow-right" />
                 </NuxtLink>
@@ -292,7 +297,8 @@ export default defineComponent({
         </section>
 
         <!-- Divider -->
-        <div class="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent my-6"></div>
+        <div class="w-full h-px bg-gradient-to-r from-transparent via-black/10 dark:via-white/10 to-transparent my-6">
+        </div>
 
         <!-- Experience & Bio (Combined for better flow) -->
         <section class="relative z-10 py-10 px-4 md:px-8 max-w-5xl mx-auto mb-20">
@@ -316,7 +322,7 @@ export default defineComponent({
                                 class="w-8 h-8 mx-auto mb-3 grayscale group-hover:grayscale-0 transition-all" />
                             <span class="block text-xs font-mono opacity-60">@justin_axo</span>
                         </a>
-                        <a href="https://www.linkedin.com/in/justin-arinze" target="_blank"
+                        <a href="https://www.linkedin.com/in/justin-arinze-627137382" target="_blank"
                             class="flex-1 p-6 rounded-2xl glass border border-white/10 hover:border-blue-500/50 transition-colors group text-center cursor-pointer">
                             <Icon icon="skill-icons:linkedin"
                                 class="w-8 h-8 mx-auto mb-3 grayscale group-hover:grayscale-0 transition-all" />
@@ -327,7 +333,7 @@ export default defineComponent({
 
                 <!-- Timeline -->
                 <div class="space-y-8 reveal-section">
-                    <div v-for="(exp, i) in experiences" :key="i" class="relative pl-8 border-l border-white/10">
+                    <div v-for="(exp, i) in experiences" :key="i" class="relative pl-8 border-l border-app">
                         <span
                             class="absolute left-[-5px] top-2 w-2.5 h-2.5 rounded-full bg-surface-dark border-2 border-accent-gold"></span>
                         <span class="text-xs font-mono text-accent-gold/80 block mb-1">{{ exp.year }}</span>
@@ -341,7 +347,8 @@ export default defineComponent({
             </div>
         </section>
         <!-- Divider -->
-        <div class="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent my-6"></div>
+        <div class="w-full h-px bg-gradient-to-r from-transparent via-black/10 dark:via-white/10 to-transparent my-6">
+        </div>
     </div>
 </template>
 

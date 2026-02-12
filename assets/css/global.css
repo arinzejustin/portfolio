@@ -46,7 +46,13 @@ body {
     @apply bg-surface-light dark:bg-surface-dark text-on-light dark:text-on-dark min-h-screen transition-all duration-500 overflow-x-hidden cursor-none scroll-smooth !important
 }
 
-a, button, select {
+body {
+    @apply overflow-y-hidden !important;
+}
+
+a,
+button,
+select {
     @apply cursor-none !important;
 }
 
