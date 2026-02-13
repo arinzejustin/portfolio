@@ -18,7 +18,15 @@
                 <!-- Hero Image Banner -->
                 <section class="relative w-full h-[40vh] md:h-[55vh] overflow-hidden">
                     <NuxtImg v-if="currentCraft" :src="currentCraft.image" :alt="currentCraft.title"
-                        class="w-full h-full object-cover scale-105 craft-hero-img" />
+                        loading="lazy" decoding="async"
+                        class="w-full h-full object-cover scale-105 craft-hero-img"
+                        :custom="true" v-slot="{ src, isLoaded, imgAttrs }">
+                        <img v-if="isLoaded" v-bind="imgAttrs" :src="src" />
+                        <img v-else
+                            class="w-full h-full object-cover scale-105"
+                            src="https://placehold.co/1400x600"
+                            :alt="currentCraft.title" />
+                    </NuxtImg>
 
                     <!-- Gradient overlay -->
                     <div

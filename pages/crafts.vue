@@ -200,7 +200,7 @@ export default defineComponent({
 
                         <!-- Center Element -->
                         <div class="absolute inset-0 flex items-center justify-center">
-                            <div class="relative w-24 h-24 lg:w-28 lg:h-28 rounded-[24px] glass-card border border-white/10 flex items-center justify-center center-float">
+                            <div class="relative w-24 h-24 lg:w-28 lg:h-28 rounded-[24px] glass-card border border-app flex items-center justify-center center-float">
                                 <!-- Inner glow -->
                                 <div class="absolute inset-0 rounded-[24px] bg-gradient-to-br from-accent-gold/20 to-teal-400/10 opacity-60"></div>
                                 <!-- Code Symbol -->
@@ -212,7 +212,7 @@ export default defineComponent({
 
                         <!-- Floating Shapes -->
                         <!-- Diamond -->
-                        <div class="absolute top-6 right-8 lg:top-8 lg:right-10 w-8 h-8 rotate-45 rounded-md glass-card border border-white/10 shape-float-1"></div>
+                        <div class="absolute top-6 right-8 lg:top-8 lg:right-10 w-8 h-8 rotate-45 rounded-md glass-card border border-app shape-float-1"></div>
                         <!-- Circle -->
                         <div class="absolute bottom-10 left-4 lg:bottom-12 lg:left-6 w-6 h-6 rounded-full glass-card border border-teal-400/20 shape-float-2"></div>
                         <!-- Small square -->
@@ -232,13 +232,20 @@ export default defineComponent({
         <!-- Featured Project (First Craft - Hero Card) -->
         <section class="relative z-10 px-4 md:px-8 max-w-6xl mx-auto pb-16 craft-card">
             <NuxtLink :to="Crafts[0].link"
-                class="group block relative rounded-[28px] overflow-hidden border border-white/10 hover:border-accent-gold/30 transition-all duration-700"
+                class="group block relative rounded-[28px] overflow-hidden border border-app hover:border-accent-gold/30 transition-all duration-700"
                 @mouseenter="hoveredIndex = -1" @mouseleave="hoveredIndex = null">
 
                 <!-- Image -->
                 <div class="relative w-full aspect-[16/8] md:aspect-[16/7] overflow-hidden">
-                    <NuxtImg :src="Crafts[0].image" :alt="Crafts[0].title"
-                        class="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-110" />
+                    <NuxtImg :src="Crafts[0].image" :alt="Crafts[0].title" loading="lazy" decoding="async"
+                        class="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-110"
+                        :custom="true" v-slot="{ src, isLoaded, imgAttrs }">
+                        <img v-if="isLoaded" v-bind="imgAttrs" :src="src" />
+                        <img v-else
+                            class="w-full h-full object-cover"
+                            src="https://placehold.co/1200x525"
+                            :alt="Crafts[0].title" />
+                    </NuxtImg>
 
                     <!-- Gradient Overlay -->
                     <div
@@ -300,8 +307,15 @@ export default defineComponent({
 
                     <!-- Image Area -->
                     <div class="relative w-full aspect-video overflow-hidden">
-                        <NuxtImg :src="craft.image" :alt="craft.title"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                        <NuxtImg :src="craft.image" :alt="craft.title" loading="lazy" decoding="async"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            :custom="true" v-slot="{ src, isLoaded, imgAttrs }">
+                            <img v-if="isLoaded" v-bind="imgAttrs" :src="src" />
+                            <img v-else
+                                class="w-full h-full object-cover"
+                                src="https://placehold.co/700x400"
+                                :alt="craft.title" />
+                        </NuxtImg>
 
                         <!-- Hover Overlay -->
                         <div

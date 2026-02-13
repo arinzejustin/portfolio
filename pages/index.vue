@@ -28,7 +28,6 @@ export default defineComponent({
                     name: "description",
                     content: "Discover Justin Arinze, a Nigerian software engineer, tech lead, and founder of Axiolot Hub. Explore his portfolio, innovative projects, and expertise in web, app, and cloud development.",
                 },
-                // ... (keeping other metas standard)
             ]
         });
 
@@ -160,7 +159,7 @@ export default defineComponent({
 
         <!-- Hero Section -->
         <section
-            class="relative z-10 w-full min-h-screen flex flex-col md:flex-row items-center justify-center md:justify-start pt-24 pb-12 px-4 md:px-16 max-w-[1400px] mx-auto gap-12 md:gap-20 overflow-y-hidden">
+            class="relative z-10 w-full min-h-screen flex flex-col md:flex-row items-center justify-center md:justify-start pt-24 pb-12 px-4 md:px-16 max-w-[1400px] mx-auto gap-12 md:gap-20 overflow-hidden">
 
             <!-- Profile Column (Left Side) -->
             <div class="hero-element relative flex-shrink-0 w-48 h-48 md:w-[400px] md:h-[500px]">
@@ -174,8 +173,15 @@ export default defineComponent({
                     <div
                         class="absolute inset-0 bg-accent-gold/10 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-700">
                     </div>
-                    <NuxtImg src="/image/profile.jpg" alt="Justin Arinze"
-                        class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105" />
+                    <NuxtImg src="/image/profile.jpg" alt="Justin Arinze" loading="lazy" decoding="async"
+                        class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105"
+                        :custom="true" v-slot="{ src, isLoaded, imgAttrs }">
+                        <img v-if="isLoaded" v-bind="imgAttrs" :src="src" />
+                        <img v-else
+                            class="w-full h-full object-cover"
+                            src="https://placehold.co/400x500"
+                            alt="Justin Arinze" />
+                    </NuxtImg>
                 </div>
 
                 <!-- Floating Badge -->
@@ -189,9 +195,63 @@ export default defineComponent({
             </div>
 
             <!-- Content Column (Right Side) -->
-            <div class="flex-1 text-center md:text-left space-y-6 md:space-y-8 max-w-2xl">
+            <div class="flex-1 text-center md:text-left space-y-6 md:space-y-8 max-w-2xl relative">
 
-                <div class="space-y-2">
+                <!-- Orbital Background Design (behind text) -->
+                <div
+                    class="absolute -top-16 -right-10 md:-right-20 w-[280px] h-[280px] md:w-[380px] md:h-[380px] pointer-events-none z-0 opacity-40 dark:opacity-30 hidden md:block hero-element">
+                    <!-- Ambient Glow -->
+                    <div
+                        class="absolute inset-0 rounded-full bg-gradient-to-br from-accent-gold/20 via-teal-400/10 to-purple-500/15 blur-[50px] hero-glow-pulse">
+                    </div>
+
+                    <!-- Outer Orbit Ring -->
+                    <div class="absolute inset-0 rounded-full border border-app hero-orbit-outer">
+                        <div
+                            class="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-accent-gold shadow-[0_0_12px_rgba(212,175,55,0.6)]">
+                        </div>
+                        <div
+                            class="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-teal-400 shadow-[0_0_10px_rgba(45,212,191,0.5)]">
+                        </div>
+                    </div>
+
+                    <!-- Middle Orbit Ring -->
+                    <div class="absolute inset-10 md:inset-14 rounded-full border border-app hero-orbit-middle">
+                        <div
+                            class="absolute top-1/2 -right-1.5 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-purple-400 shadow-[0_0_10px_rgba(168,85,247,0.5)]">
+                        </div>
+                    </div>
+
+                    <!-- Inner Orbit Ring -->
+                    <div
+                        class="absolute inset-[72px] md:inset-[100px] rounded-full border border-dashed border-app hero-orbit-inner">
+                        <div
+                            class="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-sky-400 shadow-[0_0_8px_rgba(56,189,248,0.5)]">
+                        </div>
+                    </div>
+
+                    <!-- Floating shapes -->
+                    <div
+                        class="absolute top-4 right-10 w-7 h-7 rotate-45 rounded-md hero-glass-shape border border-app hero-shape-1">
+                    </div>
+                    <div
+                        class="absolute bottom-8 left-6 w-5 h-5 rounded-full hero-glass-shape border border-teal-400/20 hero-shape-2">
+                    </div>
+                    <div
+                        class="absolute top-1/3 left-3 w-4 h-4 rounded-sm hero-glass-shape border border-purple-400/20 hero-shape-3">
+                    </div>
+
+                    <!-- Dot cluster -->
+                    <div class="absolute bottom-14 right-8 flex gap-1.5">
+                        <div class="w-1.5 h-1.5 rounded-full bg-accent-gold/50 animate-pulse"></div>
+                        <div class="w-1.5 h-1.5 rounded-full bg-teal-400/50 animate-pulse"
+                            style="animation-delay: 0.3s"></div>
+                        <div class="w-1.5 h-1.5 rounded-full bg-purple-400/50 animate-pulse"
+                            style="animation-delay: 0.6s"></div>
+                    </div>
+                </div>
+
+                <div class="space-y-2 relative z-10">
                     <h2 class="hero-element font-serif italic text-2xl md:text-3xl text-accent-gold">
                         Hello, I'm
                     </h2>
@@ -202,7 +262,8 @@ export default defineComponent({
                 </div>
 
                 <!-- Dynamic Role Text -->
-                <div class="hero-element overflow-hidden h-8 md:h-12 relative flex justify-center md:justify-start">
+                <div
+                    class="hero-element overflow-hidden h-8 md:h-12 relative flex justify-center md:justify-start z-10">
                     <h3
                         class="font-sans font-bold text-2xl md:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-purple-500">
                         Software Engineer
@@ -211,13 +272,13 @@ export default defineComponent({
 
                 <!-- Bio -->
                 <p
-                    class="hero-element text-on-muted text-lg md:text-xl leading-relaxed font-sans max-w-xl mx-auto md:mx-0">
+                    class="hero-element text-on-muted text-lg md:text-xl leading-relaxed font-sans max-w-xl mx-auto md:mx-0 relative z-10">
                     Architecting <strong class="text-on-light dark:text-white">digital ecosystems</strong> that merge
                     high-performance engineering with cinematic aesthetics.
                 </p>
 
                 <!-- Actions -->
-                <div class="hero-element flex flex-col md:flex-row items-center gap-4 pt-4">
+                <div class="hero-element flex flex-col md:flex-row items-center gap-4 pt-4 relative z-10">
                     <NuxtLink to="/#hireme"
                         class="w-full md:w-auto px-8 py-4 bg-accent-gold text-surface-dark font-bold font-display uppercase tracking-widest hover:bg-white transition-colors duration-300 rounded-sm text-center">
                         Initiate Project
@@ -231,9 +292,9 @@ export default defineComponent({
 
                     <!-- Modal (Re-positioned for left alignment context) -->
                     <div v-if="showModal" ref="modalRef"
-                        :class="['absolute top-full left-0 mt-4 z-50 p-1 bg-surface-dim border border-white/10 shadow-2xl min-w-[200px] flex flex-col']">
+                        :class="['absolute z-[10000] bottom-full left-1/3 mt-4 p-1 bg-surface-dim border border-app shadow-2xl min-w-[200px] flex flex-col']">
                         <a href="/pdf/resume.pdf" target="_blank"
-                            class="text-left py-3 px-6 hover:bg-white/5 text-sm font-mono text-white transition-colors border-b border-white/5">VIew
+                            class="text-left py-3 px-6 hover:bg-white/5 text-sm font-mono text-white transition-colors border-b border-app">View
                             PDF</a>
                         <button @click="downloadPdf('/pdf/resume.pdf')"
                             class="text-left py-3 px-6 hover:bg-white/5 text-sm font-mono text-white transition-colors">Download</button>
@@ -267,8 +328,15 @@ export default defineComponent({
                 <NuxtLink v-for="(craft, i) in Crafts.slice(0, 4)" :key="i" :to="craft.link"
                     class="group relative block rounded-2xl overflow-hidden glass border border-white/10 hover:border-accent-gold/30 transition-all duration-500 reveal-section">
                     <div class="aspect-video w-full overflow-hidden">
-                        <NuxtImg :src="craft.image" :alt="craft.title"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                        <NuxtImg :src="craft.image" :alt="craft.title" loading="lazy" decoding="async"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            :custom="true" v-slot="{ src, isLoaded, imgAttrs }">
+                            <img v-if="isLoaded" v-bind="imgAttrs" :src="src" />
+                            <img v-else
+                                class="w-full h-full object-cover"
+                                src="https://placehold.co/700x400"
+                                :alt="craft.title" />
+                        </NuxtImg>
                         <!-- Overlay -->
                         <div
                             class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -391,6 +459,105 @@ export default defineComponent({
 
     100% {
         background-position: 0% 50%;
+    }
+}
+
+/* Hero Orbital Animations */
+.hero-orbit-outer {
+    animation: heroOrbitSpin 22s linear infinite;
+}
+
+.hero-orbit-middle {
+    animation: heroOrbitSpin 15s linear infinite reverse;
+}
+
+.hero-orbit-inner {
+    animation: heroOrbitSpin 11s linear infinite;
+}
+
+@keyframes heroOrbitSpin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.hero-glow-pulse {
+    animation: heroGlowPulse 4s ease-in-out infinite;
+}
+
+@keyframes heroGlowPulse {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.6;
+        transform: scale(1.06);
+    }
+}
+
+.hero-glass-shape {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.hero-shape-1 {
+    animation: heroFloat1 6s ease-in-out infinite;
+}
+
+@keyframes heroFloat1 {
+
+    0%,
+    100% {
+        transform: rotate(45deg) translateY(0);
+    }
+
+    50% {
+        transform: rotate(45deg) translateY(-10px);
+    }
+}
+
+.hero-shape-2 {
+    animation: heroFloat2 7s ease-in-out infinite;
+}
+
+@keyframes heroFloat2 {
+
+    0%,
+    100% {
+        transform: translateY(0) translateX(0);
+    }
+
+    33% {
+        transform: translateY(-8px) translateX(4px);
+    }
+
+    66% {
+        transform: translateY(4px) translateX(-4px);
+    }
+}
+
+.hero-shape-3 {
+    animation: heroFloat3 5s ease-in-out infinite;
+}
+
+@keyframes heroFloat3 {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-6px) rotate(10deg);
     }
 }
 </style>

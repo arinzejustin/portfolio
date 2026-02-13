@@ -37,7 +37,7 @@ export default defineComponent({
         let observer: IntersectionObserver | null = null;
 
         const techStack = [
-            { name: "HTML", color: "#E34F26", icon: "vscode-icons:file-type-html" },
+            { name: "HTML 5", color: "#E34F26", icon: "vscode-icons:file-type-html" },
             { name: "CSS", color: "#1572B6", icon: "vscode-icons:file-type-css" },
             { name: "JS", color: "#F7DF1E", icon: "logos:javascript" },
             { name: "Vue", color: "#4FC08D", icon: "logos:vue" },
@@ -45,14 +45,18 @@ export default defineComponent({
             { name: "Tailwind", color: "#06B6D4", icon: "devicon:tailwindcss" },
             { name: "GSAP", color: "#88CE02", icon: "logos:greensock-icon" },
             { name: "TS", color: "#3178C6", icon: "logos:typescript-icon" },
-            { name: "Node", color: "#339933", icon: "logos:nodejs-icon" },
-            { name: "React", color: "#61DAFB", icon: "logos:react" },
+            { name: "NodeJs", color: "#339933", icon: "logos:nodejs-icon" },
+            { name: "Svelte", color: "#61DAFB", icon: "logos:svelte-icon" },
             { name: "Git", color: "#F05032", icon: "logos:git-icon" },
-            { name: "Electron", color: "#47848F", icon: "logos:electron" },
-            { name: "Figma", color: "#F24E1E", icon: "logos:figma" },
+            { name: "ElectronJs", color: "#47848F", icon: "logos:electron" },
+            { name: "PHP", color: "#F24E1E", icon: "logos:php" },
             { name: "Supabase", color: "#3FCF8E", icon: "logos:supabase-icon" },
-            { name: "Python", color: "#3776AB", icon: "logos:python" },
+            { name: "Golang", color: "#3776AB", icon: "logos:go" },
             { name: "MySQL", color: "#4479A1", icon: "logos:mysql" },
+            { name: "PostgreSQL", color: "#4479A1", icon: "logos:postgresql" },
+            { name: "Firebase", color: "#4479A1", icon: "logos:firebase" },
+            { name: "Bun", color: "#4479A1", icon: "logos:bun" },
+            { name: "Dart", color: "#4479A1", icon: "logos:dart" },
         ];
 
         const initBalls = () => {
@@ -240,7 +244,8 @@ export default defineComponent({
 </script>
 
 <template>
-    <section id="skills-section" ref="sectionRef" class="relative w-full py-10 pb-5 flex flex-col items-center overflow-hidden">
+    <section id="skills-section" ref="sectionRef"
+        class="relative w-full py-10 pb-5 flex flex-col items-center overflow-hidden">
         <div class="z-10 text-center mb-8">
             <h2 class="text-3xl md:text-5xl font-display font-bold mb-4 tracking-tight">Technical <span
                     class="text-accent-gold font-serif italic">Arsenal</span></h2>
