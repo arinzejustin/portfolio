@@ -1,5 +1,42 @@
 [
   {
+    "title": "PPSMB File Manager",
+    "subtitle": "File Management System for PPSMB",
+    "description": "A secure, cross-platform Electron desktop and web application designed to manage departmental operations, task workflows, reporting, and controlled system processes within an organization.",
+    "image": "/image/ppsmb-file-manager.webp",
+    "link": "/craft/ppsmb-file-manager",
+    "techstack": [
+      "Electron",
+      "Tailwind CSS",
+      "Nuxt",
+      "Shadcn-ui",
+      "Docker",
+      "Python",
+      "Git",
+      "GoLang",
+      "TypeScript",
+      "Vercel",
+      "Vue",
+      "Websocket"
+    ],
+    "date": "2026",
+    "features": [
+      "File Management",
+      "Departmental Operations",
+      "Task Workflows",
+      "Reporting",
+      "Controlled System Processes",
+      "Internal Mailing",
+      "Teachers and Staff Management",
+      "Document Scanning",
+      "Secure Login and Access Control",
+      "Mobile-friendly and Desktop Interface",
+      "Chat and Videos Call System"
+    ],
+    "liveUrl": "https://ppsmb.com.ng",
+    "client": "Post Primary Schools Management Board"
+  },
+  {
     "title": "Axiolot Hub",
     "subtitle": "School Management System",
     "description": "Manage all aspects of your school information with ease. The app includes an Academics Portal for accessing resources, an ePayment Portal for online transactions, an Analytics Portal for data-driven decisions, Site Management tools for website control, and a Staff Payment System for efficient payroll management.",
@@ -90,7 +127,13 @@
     "description": "A Browser extension that lets you highlight, save, and sync your favorite lines from any webpage. Get instant word meanings with a hover and access your saved highlights anytime, on any device. Perfect for students, researchers, and lifelong learners",
     "image": "/image/adblocker.webp",
     "link": "/craft/adblocker",
-    "techstack": ["Nuxt 3", "Tailwind CSS", "Shadcn-ui", "JavaScript", "Git"],
+    "techstack": [
+      "Nuxt 3",
+      "Tailwind CSS",
+      "Shadcn-ui",
+      "JavaScript",
+      "Git"
+    ],
     "date": "2025",
     "features": [
       "Instant Word Meaning",

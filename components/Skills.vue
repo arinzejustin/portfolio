@@ -48,7 +48,7 @@ export default defineComponent({
             { name: "NodeJs", color: "#339933", icon: "logos:nodejs-icon" },
             { name: "Svelte", color: "#61DAFB", icon: "logos:svelte-icon" },
             { name: "Git", color: "#F05032", icon: "logos:git-icon" },
-            { name: "ElectronJs", color: "#47848F", icon: "logos:electron" },
+            { name: "Electron", color: "#47848F", icon: "logos:electron" },
             { name: "PHP", color: "#F24E1E", icon: "logos:php" },
             { name: "Supabase", color: "#3FCF8E", icon: "logos:supabase-icon" },
             { name: "Golang", color: "#3776AB", icon: "logos:go" },
@@ -57,6 +57,7 @@ export default defineComponent({
             { name: "Firebase", color: "#4479A1", icon: "logos:firebase" },
             { name: "Bun", color: "#4479A1", icon: "logos:bun" },
             { name: "Dart", color: "#4479A1", icon: "logos:dart" },
+            { name: "Flutter", color: "#4479A1", icon: "logos:flutter" },
         ];
 
         const initBalls = () => {
@@ -250,7 +251,7 @@ export default defineComponent({
             <h2 class="text-3xl md:text-5xl font-display font-bold mb-4 tracking-tight">Technical <span
                     class="text-accent-gold font-serif italic">Arsenal</span></h2>
             <p class="text-on-muted max-w-lg mx-auto">
-                A collision of technologies. Drag your mouse to disrupt the gravity.
+                The tools I might use in building your next project. A call away from we creating something amazing.
             </p>
         </div>
 

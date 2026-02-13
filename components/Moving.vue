@@ -52,6 +52,7 @@ export default defineComponent({
       { title: "Sites Dashboard", image: "/image/sites.webp" },
       { title: "Portal Dashboard", image: "/image/portal.webp" },
       { title: "Student Dashboard", image: "/image/student-portal.png" },
+      { title: "PPSMB File Manager", image: "/image/ppsmb-file-manager.webp" },
     ]);
 
     const isPaused = ref(false);
