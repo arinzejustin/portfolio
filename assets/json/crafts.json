@@ -125,7 +125,7 @@
     "title": "Highlightly (Extension)",
     "subtitle": "",
     "description": "A Browser extension that lets you highlight, save, and sync your favorite lines from any webpage. Get instant word meanings with a hover and access your saved highlights anytime, on any device. Perfect for students, researchers, and lifelong learners",
-    "image": "/image/highlightly.webp",
+    "image": "/image/highlightly.png",
     "link": "/craft/highlightly",
     "techstack": [
       "SvelteKit",

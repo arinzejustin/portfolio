@@ -69,13 +69,13 @@ export default defineComponent({
       });
 
     // Animate the footer section too
-    gsap.from("#hireme > div:last-child", {
+    gsap.from("#hireme > footer", {
       opacity: 0,
       y: 40,
       duration: 1,
       ease: "power2.out",
       scrollTrigger: {
-        trigger: "#hireme > div:last-child",
+        trigger: "#hireme > footer",
         start: "top 85%",
       },
     });
