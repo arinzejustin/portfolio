@@ -39,6 +39,7 @@ export default defineComponent({
         const techStack = [
             { name: "HTML 5", color: "#E34F26", icon: "vscode-icons:file-type-html" },
             { name: "CSS", color: "#1572B6", icon: "vscode-icons:file-type-css" },
+            { name: "SASS", color: "#1572B6", icon: "vscode-icons:file-type-sass" },
             { name: "JS", color: "#F7DF1E", icon: "logos:javascript" },
             { name: "Vue", color: "#4FC08D", icon: "logos:vue" },
             { name: "Nuxt", color: "#00DC82", icon: "logos:nuxt-icon" },
