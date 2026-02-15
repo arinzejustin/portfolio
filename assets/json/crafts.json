@@ -93,6 +93,36 @@
     "client": "Kada Sales"
   },
   {
+    "title": "Uptime Monitor",
+    "subtitle": "Uptime Monitoring Service",
+    "description": "A production-ready uptime monitoring service built with Go, featuring intelligent retry logic, rate limiting, automated email fallbacks, and comprehensive health checking with SSL certificate tracking and multi-channel notifications.",
+    "image": "/image/uptime.png",
+    "link": "/craft/uptime-monitor",
+    "techstack": [
+      "Tailwind CSS",
+      "Shadcn-ui",
+      "SvelteKit",
+      "GitHub",
+      "Supabase",
+      "GO",
+      "Chart.js",
+      "Git",
+      "TypeScript",
+      "Vercel"
+    ],
+    "date": "2025",
+    "features": [
+      "Uptime Monitoring",
+      "SSL Certificate Tracking",
+      "Multi-Channel Notifications",
+      "Intelligent Retry Logic",
+      "Rate Limiting",
+      "Automated Email Fallbacks"
+    ],
+    "liveUrl": "https://github.com/arinzejustin/uptime-monitor",
+    "client": "Personal Project"
+  },
+  {
     "title": "Admin Portal Dashboard",
     "subtitle": "Admin Dashboard Management System",
     "description": "Interface that allows administrators to manage, track student performance, manage grades, attendance, and examination results effortlessly.",
