@@ -241,10 +241,7 @@ export default defineComponent({
                         class="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-110"
                         :custom="true" v-slot="{ src, isLoaded, imgAttrs }">
                         <img v-if="isLoaded" v-bind="imgAttrs" :src="src" />
-                        <img v-else
-                            class="w-full h-full object-cover"
-                            src="https://placehold.co/1200x525"
-                            :alt="Crafts[0].title" />
+                        <div v-else class="w-full h-full skeleton-loader" />
                     </NuxtImg>
 
                     <!-- Gradient Overlay -->
@@ -311,10 +308,7 @@ export default defineComponent({
                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                             :custom="true" v-slot="{ src, isLoaded, imgAttrs }">
                             <img v-if="isLoaded" v-bind="imgAttrs" :src="src" />
-                            <img v-else
-                                class="w-full h-full object-cover"
-                                src="https://placehold.co/700x400"
-                                :alt="craft.title" />
+                            <div v-else class="w-full h-full skeleton-loader" />
                         </NuxtImg>
 
                         <!-- Hover Overlay -->

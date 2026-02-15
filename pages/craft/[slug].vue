@@ -22,10 +22,7 @@
                         class="w-full h-full object-cover scale-105 craft-hero-img"
                         :custom="true" v-slot="{ src, isLoaded, imgAttrs }">
                         <img v-if="isLoaded" v-bind="imgAttrs" :src="src" />
-                        <img v-else
-                            class="w-full h-full object-cover scale-105"
-                            src="https://placehold.co/1400x600"
-                            :alt="currentCraft.title" />
+                        <div v-else class="w-full h-full skeleton-loader" />
                     </NuxtImg>
 
                     <!-- Gradient overlay -->

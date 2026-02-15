@@ -5,8 +5,8 @@
       <div ref="track" class="marquee-track flex flex-row items-center flex-[0_0_auto]" :class="{ paused: isPaused }"
         @click="togglePause">
         <!-- Loop items twice for seamless infinite scroll -->
-        <div v-for="(item, i) in [...items, ...items]" :key="i" class="flex px-6 md:px-3 cursor-app"
-          :title="item.title">
+        <NuxtLink v-for="(item, i) in [...items, ...items]" :key="i" :to="item.link" class="flex px-6 md:px-3 cursor-app"
+          :title="item.title" @click.stop>
           <div
             class="marquee-item flex min-w-[400px] w-full glass rounded-xl overflow-hidden border-[1.5px] border-app relative transition-all hover:scale-[1.01]">
             <!-- Image container -->
@@ -17,9 +17,8 @@
                   v-slot="{ src, isLoaded, imgAttrs }" :src="item.image">
                   <img v-if="isLoaded" v-bind="imgAttrs" :src="src" />
 
-                  <!-- Show a placeholder while loading -->
-                  <img v-else class="w-full h-[250px] md:object-contain rounded-xl" src="https://placehold.co/527x250"
-                    :alt="item.title" />
+                  <!-- Show a skeleton while loading -->
+                  <div v-else class="w-[500px] h-[250px] rounded-xl skeleton-loader" />
                 </NuxtImg>
               </div>
             </div>
@@ -30,7 +29,7 @@
             <div class="absolute dot-shadow w-2 h-2 top-4 right-4 rounded-full bg-[#e6e6e6] dark:bg-[#121212]"></div>
             <div class="absolute dot-shadow w-2 h-2 bottom-4 right-4 rounded-full bg-[#e6e6e6] dark:bg-[#121212]"></div>
           </div>
-        </div>
+        </NuxtLink>
       </div>
     </div>
   </div>
@@ -40,20 +39,15 @@
 import { defineComponent, ref, onMounted } from "vue";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import CraftsData from "@/assets/json/crafts.json";
+import type { Craft } from "@/types/crafts";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default defineComponent({
   name: "Moving",
   setup() {
-    const items = ref([
-      { title: "Axiolot Hub", image: "/image/axiolot-hub.webp" },
-      { title: "Kada Sales", image: "/image/kadasales.webp" },
-      { title: "Sites Dashboard", image: "/image/sites.webp" },
-      { title: "Portal Dashboard", image: "/image/portal.webp" },
-      { title: "Student Dashboard", image: "/image/student-portal.png" },
-      { title: "PPSMB File Manager", image: "/image/ppsmb-file-manager.webp" },
-    ]);
+    const items = ref<Craft[]>(CraftsData as Craft[]);
 
     const isPaused = ref(false);
     const track = ref<HTMLElement | null>(null);
