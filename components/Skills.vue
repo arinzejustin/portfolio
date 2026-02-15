@@ -2,10 +2,9 @@
 import { defineComponent, onMounted, onUnmounted, ref, nextTick } from "vue";
 import { Icon } from "@iconify/vue";
 
-// Physics Constants
 const GRAVITY = 0.4;
 const FRICTION = 0.98;
-const BOUNCE = 0.6; // How bouncy the balls are (0-1)
+const BOUNCE = 0.6;
 const MOUSE_REPULSION = 1.5;
 
 interface Ball {
@@ -67,17 +66,16 @@ export default defineComponent({
             containerWidth = containerRef.value.clientWidth;
             containerHeight = containerRef.value.clientHeight;
 
-            // Create balls — positioned above the container, invisible until started
             balls.value = techStack.map((tech, i) => ({
                 id: i,
                 name: tech.name,
                 level: "Pro",
                 icon: tech.icon,
                 x: Math.random() * (containerWidth - 60) + 30,
-                y: -Math.random() * 500 - 100, // Start above the screen staggered
+                y: -Math.random() * 500 - 100,
                 vx: (Math.random() - 0.5) * 4,
                 vy: 0,
-                radius: 35, // Visual radius
+                radius: 35,
                 color: tech.color
             }));
         };
@@ -89,14 +87,10 @@ export default defineComponent({
             }
 
             balls.value.forEach(ball => {
-                // Gravity
                 ball.vy += GRAVITY;
-
-                // Friction
                 ball.vx *= FRICTION;
                 ball.vy *= FRICTION;
 
-                // Mouse Interaction (Repulsion)
                 if (containerRef.value) {
                     const rect = containerRef.value.getBoundingClientRect();
                     const relativeMouseX = mouseX.value - rect.left;
@@ -113,20 +107,15 @@ export default defineComponent({
                         ball.vy += Math.sin(angle) * force * MOUSE_REPULSION;
                     }
                 }
-
-                // Update Position
                 ball.x += ball.vx;
                 ball.y += ball.vy;
 
-                // Floor Collision
                 if (ball.y + ball.radius > containerHeight) {
                     ball.y = containerHeight - ball.radius;
                     ball.vy *= -BOUNCE;
-                    // Prevent endless micro-bouncing
                     if (Math.abs(ball.vy) < GRAVITY * 2) ball.vy = 0;
                 }
 
-                // Wall Collision
                 if (ball.x + ball.radius > containerWidth) {
                     ball.x = containerWidth - ball.radius;
                     ball.vx *= -BOUNCE;
@@ -136,7 +125,6 @@ export default defineComponent({
                 }
             });
 
-            // Ball to Ball Collision
             for (let i = 0; i < balls.value.length; i++) {
                 for (let j = i + 1; j < balls.value.length; j++) {
                     const b1 = balls.value[i];
@@ -152,7 +140,6 @@ export default defineComponent({
                         const sin = Math.sin(angle);
                         const cos = Math.cos(angle);
 
-                        // Overlap resolution
                         const overlap = minDist - dist;
                         const moveX = (overlap / 2) * cos;
                         const moveY = (overlap / 2) * sin;
@@ -162,24 +149,19 @@ export default defineComponent({
                         b2.x += moveX;
                         b2.y += moveY;
 
-                        // Velocity exchange (simplified elastic collision)
-                        // Rotate velocities
                         const vx1 = b1.vx * cos + b1.vy * sin;
                         const vy1 = b1.vy * cos - b1.vx * sin;
                         const vx2 = b2.vx * cos + b2.vy * sin;
                         const vy2 = b2.vy * cos - b2.vx * sin;
 
-                        // Swap 'x' velocities
                         const vx1Final = vx2;
                         const vx2Final = vx1;
 
-                        // Rotate back
                         b1.vx = vx1Final * cos - vy1 * sin;
                         b1.vy = vy1 * cos + vx1Final * sin;
                         b2.vx = vx2Final * cos - vy2 * sin;
                         b2.vy = vy2 * cos + vx2Final * sin;
 
-                        // Energy loss on collision to stabilize
                         b1.vx *= 0.9; b1.vy *= 0.9;
                         b2.vx *= 0.9; b2.vy *= 0.9;
                     }
@@ -213,20 +195,18 @@ export default defineComponent({
             window.addEventListener('mousemove', onMouseMove);
             animationFrame = requestAnimationFrame(updatePhysics);
 
-            // Use IntersectionObserver to detect when the section scrolls into view
             if (sectionRef.value) {
                 observer = new IntersectionObserver(
                     (entries) => {
                         entries.forEach((entry) => {
                             if (entry.isIntersecting) {
                                 startSimulation();
-                                // Once started, we can disconnect
                                 observer?.disconnect();
                             }
                         });
                     },
                     {
-                        threshold: 0.15, // Trigger when 15% of the section is visible
+                        threshold: 0.15,
                     }
                 );
                 observer.observe(sectionRef.value);
@@ -256,7 +236,6 @@ export default defineComponent({
             </p>
         </div>
 
-        <!-- Physics Container -->
         <div ref="containerRef"
             class="relative w-full max-w-5xl h-[250px] border-b border-app rounded-b-3xl overflow-hidden cursor-crosshair">
             <div v-for="ball in balls" :key="ball.id"
