@@ -8,6 +8,79 @@ export default defineComponent({
   },
 
   setup() {
+    useHead({
+      title: "Justin Arinze – Software Engineer, Tech Lead, and Founder | Portfolio & Projects",
+      meta: [
+        {
+          name: "description",
+          content:
+            "Discover Justin Arinze, a Nigerian software engineer, tech lead, and founder of Axiolot Hub. Explore his portfolio, innovative projects, and expertise in web, app, and cloud development.",
+        },
+        {
+          name: "keywords",
+          content:
+            "Justin Arinze, Software Engineer, Tech Lead, Axiolot Hub, Portfolio, Web Developer, App Developer, Cloud Computing, Nigerian Developer, Software Projects, Innovative Solutions",
+        },
+        { name: "author", content: "Justin Arinze" },
+        {
+          property: "og:title",
+          content:
+            "Justin Arinze – Software Engineer, Tech Lead, and Founder | Portfolio & Projects",
+        },
+        {
+          property: "og:description",
+          content:
+            "Explore the portfolio and projects of Justin Arinze, a passionate software engineer and founder of Axiolot Hub, delivering innovative solutions in technology.",
+        },
+        { property: "og:image", content: "/image/profile.jpg" },
+        {
+          property: "og:image:alt",
+          content: "Justin Arinze's Profile Picture",
+        },
+        { property: "og:type", content: "website" },
+        {
+          property: "og:url",
+          content: "https://arinzejustin.netlify.app",
+        },
+        { name: "twitter:card", content: "summary_large_image" },
+        {
+          name: "twitter:title",
+          content:
+            "Justin Arinze – Software Engineer, Tech Lead, and Founder | Portfolio & Projects",
+        },
+        {
+          name: "twitter:description",
+          content:
+            "Explore the portfolio and projects of Justin Arinze, a passionate software engineer and founder of Axiolot Hub, delivering innovative solutions in technology.",
+        },
+        { name: "twitter:image", content: "/image/profile.jpg" },
+        {
+          name: "twitter:image:alt",
+          content: "Justin Arinze's Profile Picture",
+        },
+        { name: "twitter:site", content: "@justin_axo" },
+        { name: "twitter:creator", content: "@justin_axo" },
+      ],
+      link: [
+        { rel: "icon", type: "image/png", href: "/favicon.png" },
+        {
+          rel: "shortcut icon",
+          type: "image/png",
+          href: "/favicon.png",
+        },
+        {
+          rel: "shortcut icon",
+          type: "image/x-icon",
+          href: "/favicon.ico",
+        },
+        {
+          rel: "apple-touch-icon",
+          type: "image/png",
+          href: "/image/favicon.png",
+        },
+        { rel: "canonical", href: "https://arinzejustin.netlify.app" },
+      ],
+    });
     const { theme, toggleTheme } = useTheme();
     const newsLetter = ref<boolean>(false);
 
