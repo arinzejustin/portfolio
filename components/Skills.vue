@@ -237,7 +237,7 @@ export default defineComponent({
         </div>
 
         <div ref="containerRef"
-            class="relative w-full max-w-5xl h-[250px] border-b border-app rounded-b-3xl overflow-hidden cursor-crosshair">
+            class="relative w-full max-w-5xl h-[350px] lg:h-[250px] border-b border-app rounded-b-3xl overflow-hidden cursor-crosshair">
             <div v-for="ball in balls" :key="ball.id"
                 class="absolute flex items-center justify-center rounded-full shadow-[inset_0_-4px_6px_rgba(0,0,0,0.3)] border border-white/20 glass transition-transform active:scale-95"
                 :style="{
