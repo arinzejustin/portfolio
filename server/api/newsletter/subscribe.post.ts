@@ -27,8 +27,6 @@ export default defineEventHandler(async (event) => {
     const body = await readBody<{ email: string }>(event)
     const email = body.email?.toLowerCase()?.trim()
 
-    console.log(body, email)
-
     if (!email || !isValidEmail(email)) {
         return { status: false, message: "Invalid email address." }
     }

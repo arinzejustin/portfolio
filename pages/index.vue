@@ -161,13 +161,11 @@ export default defineComponent({
         <section
             class="relative z-10 w-full min-h-screen flex flex-col md:flex-row items-center justify-center md:justify-start pt-24 pb-12 px-4 md:px-16 max-w-[1400px] mx-auto gap-12 md:gap-20 overflow-hidden">
 
-            <!-- Profile Column (Left Side) -->
             <div class="hero-element relative flex-shrink-0 w-72 h-72 md:w-[400px] md:h-[500px]">
                 <div
                     class="absolute inset-0 bg-gradient-to-tr from-accent-gold/20 to-teal-400/20 blur-[40px] rounded-full animate-pulse-slow">
                 </div>
 
-                <!-- Premium Image Container -->
                 <div
                     class="w-full h-full rounded-[40px] md:rounded-none md:rounded-tl-[80px] md:rounded-br-[80px] overflow-hidden border border-white/10 relative z-10 group bg-surface-dark">
                     <div
