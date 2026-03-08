@@ -1,5 +1,31 @@
 [
   {
+    "title": "CodeAura",
+    "subtitle": "Premium Code-to-Image Tool",
+    "description": "A premium code-to-image tool that transforms code snippets into stunning, shareable screenshots. It features 40+ beautiful themes, custom backgrounds, glassmorphism UI, smart history with cloud sync, and the ability to generate unique shareable links for your code snapshots.",
+    "image": "/image/codeaura.png",
+    "link": "/craft/codeaura",
+    "techstack": [
+      "Vue",
+      "Tailwind CSS",
+      "TypeScript",
+      "Bun",
+      "Hono",
+      "Supabase"
+    ],
+    "date": "2026",
+    "features": [
+      "40+ Beautiful Code Themes",
+      "Custom Backgrounds & Controls",
+      "Glassmorphism UI Framework",
+      "Smart Auto-save & Cloud Sync",
+      "Shareable Snapshot Links",
+      "Keyboard Shortcuts"
+    ],
+    "liveUrl": "https://codeaura.fun",
+    "client": "Personal Project"
+  },
+  {
     "title": "PPSMB File Manager",
     "subtitle": "File Management System for PPSMB",
     "description": "A secure, cross-platform Electron desktop and web application designed to manage departmental operations, task workflows, reporting, and controlled system processes within an organization.",
