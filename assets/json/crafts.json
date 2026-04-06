@@ -1,5 +1,31 @@
 [
   {
+    "title": "PPSMB Enugu Website",
+    "subtitle": "Official Website for Post Primary Schools Management Board, Enugu State, Nigeria",
+    "description": "The official website for the Post Primary Schools Management Board (PPSMB) Enugu, designed to provide comprehensive information about the board's operations, policies, and initiatives. It features a user-friendly interface, responsive design, and easy navigation to ensure that visitors can access the information they need efficiently.",
+    "image": "/image/ppsmbenugu.png",
+    "link": "/craft/ppsmbenugu-website",
+    "techstack": [
+      "Nuxt 3",
+      "Tailwind CSS",
+      "PHP (Slim)",
+      "MySQL",
+      "Cloudflare",
+      "Vercel",
+      "Git",
+      "Shadcn-ui"
+    ],
+    "date": "2026",
+    "features": [
+      "Comprehensive News & Announcements Platform",
+      "Document & Resource Repository",
+      "School and Educational Zone Management",
+      "Event Tracking and Media Gallery"
+    ],
+    "liveUrl": "https://ppsmbenugu.com",
+    "client": "Post Primary Schools Management Board, Enugu State, Nigeria"
+  },
+  {
     "title": "CodeAura",
     "subtitle": "Premium Code-to-Image Tool",
     "description": "A premium code-to-image tool that transforms code snippets into stunning, shareable screenshots. It features 40+ beautiful themes, custom backgrounds, glassmorphism UI, smart history with cloud sync, and the ability to generate unique shareable links for your code snapshots.",
@@ -59,8 +85,8 @@
       "Mobile-friendly and Desktop Interface",
       "Chat and Videos Call System"
     ],
-    "liveUrl": "https://ppsmb-enugu.netlify.app",
-    "client": "Post Primary Schools Management Board"
+    "liveUrl": "https://ppsmbnexusenugu.axiolot.com.ng",
+    "client": "Post Primary Schools Management Board, Enugu State, Nigeria"
   },
   {
     "title": "Axiolot Hub",
